@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "./login.service";
+import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import {LoginService} from './login.service';
 import {LoginDetail} from './loginDetail';
 
 @Component({
@@ -8,18 +11,29 @@ import {LoginDetail} from './loginDetail';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private loginDetails:LoginDetail[];
+  private loginDetails: LoginDetail[];
+  status: {};
+  loginForm: FormGroup;
+  constructor(private _loginService: LoginService , private formBuilder: FormBuilder) { }
 
-  constructor(private _loginService:LoginService) { }
-
-  checkLoginDetails(loginDetails)
-  {
-    this._loginService.checkLoginDetails(loginDetails).subscribe(loginDetails=>{
-      this.loginDetails=loginDetails;
+  checkLoginDetails() {
+    const loginDetails = this.loginForm.value;
+    console.log(loginDetails);
+    this._loginService.checkLoginDetails(loginDetails).subscribe(status =>
+    {
+      //this.status = status;
+      console.log(status);
+      if(status.status=="login success")
+      {
+        console.log(status);
+      }
     });
   }
   ngOnInit() {
-
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
+      password: ['', Validators.required],
+    });
   }
 
 }

@@ -1,5 +1,83 @@
-<p>
-  login works!
-</p>
-email:<input type="text">
-password:<input type="password">
+<div id="icon"></div>
+<div id="dmantz">
+  <h1>DMANTZ</h1>
+</div>
+
+<div id="id">
+<form [formGroup]="loginForm" (submit)="checkLoginDetails()">
+  <label id="email_label">EMAIL:</label>
+  <input type="text" formControlName="email" id="email_box">
+  <p *ngIf="loginForm.controls.email.errors" id="error_mail">This field is required!</p>
+
+  <label id="password_label">PASSWORD:</label>
+  <input type="password" formControlName="password" id="password_box">
+  <p *ngIf="loginForm.controls.password.errors" id="error_password">This field is required!</p>
+
+  <button type="submit" id="submit">Login</button>
+
+</form>
+  <label id="label_rememberMe">Remember me</label>
+  <input type="checkbox" id="checkbox">
+  <a href="" id="forgot">Forgot Password</a>
+  <label id="label_newuser">New User:</label>
+  <button id="register">Register</button>
+</div>
+
+<!--
+<div id="div_dmantz_icon">
+
+  </div>
+
+  <div id="div_dmantz_text" class="nm-label">
+    <h1 id="dmantz_text">
+      DMANTZ<br/>
+    </h1>
+  </div>
+  <form id="form" role="form">
+
+    <div id="div_email_text" class="nm-label">
+        <span id="email_text">
+            Email<br/>
+        </span>
+    </div>
+
+    <div id="div_password_text" class="nm-label">
+        <span id="password_text">
+            Password<br/>
+        </span>
+    </div>
+    <input type="text" id="inputbox_email" placeholder="Email" class="form-control" />
+    <input type="text" id="inputbox_password" placeholder="Password" class="form-control" />
+    <div class="checkbox" id="div_rememberMe">
+      <label id="label_rememberMe">
+        <input type="checkbox" checked />Remember me
+      </label>
+    </div>
+    <button id="login" class="btn btn-default">
+      Login
+
+    </button>
+
+    <div id="div_register" class="nm-label">
+      <a id="link_register" href="#">
+        Register<br/>
+      </a>
+    </div>
+
+    <div id="div_newUser" class="nm-label">
+        <span id="newUser_text">
+            New User:<br/>
+        </span>
+    </div>
+
+    <div id="div_forgotPassword" class="nm-label">
+      <a id="link_forgotPassword" href="#">
+        Forgot Password<br/>
+      </a>
+    </div>
+    <button id="reset" class="btn btn-default">
+      RESET
+
+    </button>
+  </form>
+-->

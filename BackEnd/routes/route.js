@@ -5,34 +5,59 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "secret",
-    database:"dmantzspirit"
+    database:"dmantz_spirit"
 });
 con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
 });
-router.all('/login',(req,res,next)=>{
-   var request=req.body;
-   console.log(request);
-   var email=request.email;
-   var password=request.password;
-var select = 'SELECT * FROM registeredUsers WHERE email = ? limit 1';
-connection.query(select, [email], function (error, results, fields) {
-    if (error) {
-        console.log("error ocurred");
+router.post('/login',(req,res,next)=>
+{
+    var request = req.body;
+console.log(request);
+var email = request.email;
+var password = request.password;
+var select = 'SELECT * FROM registeredusers WHERE email = ? limit 1';
+con.query(select, [email], function (error, results)
+{
+    if (error)
+    {
+        console.log("error occurred");
         res.send({
-            "code": 400, "failed": "Mail Id Not Exists"
+            "code": 400, "failed": error
         });
     }
-    else {
+    else
+    {
         console.log('The solution is', results);
-        if (results.length > 0) {
+        if (results.length > 0)
+        {
             console.log(results[0].password);
-            if (results[0].password == password) {
-                res.send({"status": "login success"});
+            if ((results[0].password) == password)
+            {
+                var status={"status":"login success"};
+                console.log(status);
+                res.send(status);
+            }
+            else
+            {
+                var status={"status":"password incorrect"};
+                console.log(status);
+                res.send(status);
+            }
+        }
+        else
+        {
+            if (results.length == 0)
+            {
+                var status={"status":"email not exists"};
+                console.log(status);
+                res.send(status);
             }
         }
     }
+});
+
 });
 /*
 router.get('/contacts',(req,res,next)=>{
@@ -74,4 +99,5 @@ con.query(sql,[ID],function (err,results) {
     }
 });
 });*/
+
 module.exports=router;
