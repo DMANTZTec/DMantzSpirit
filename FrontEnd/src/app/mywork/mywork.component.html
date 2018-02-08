@@ -1,0 +1,46 @@
+<div id="labeloflogo">LOGO</div>
+
+<div id="HeadingDmantz" class="nm-label">
+    <h1 id="contentofDmantz">DMANTZ<br/></h1>
+</div>
+
+<div id="label_username">UserLogin</div>
+
+<!--<button id="ADD_button" class="btn btn-default">ADD</button>-->
+
+<div id="div_Search">
+  <input type="text" id="search_text" placeholder="Search input" class="fmorm-control" />
+  <button id="Search_button" class="btn btn-default">Search</button>
+</div>
+
+<div class="tab">
+  <button id="mywork" >MYWORK</button>
+  <button id="tools" >TOOLS</button>
+</div>
+
+<div id="table_div">
+<table class="table">
+  <thead>
+  <tr>
+    <th *ngFor="let column of columns">
+      {{column}}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of myworkdata">
+    <td>{{data.EMPLOYEE_NM}}</td>
+    <td>{{data.SUBJECT_NM}}</td>
+    <td>{{data.TOPIC_ID}}</td>
+    <td>{{data.TOPIC_NM}}</td>
+    <td>{{data.TOPIC_START_DT}}</td>
+    <td>{{data.TOPIC_END_DT}}</td>
+    <td>{{data.ESTIMATED_TIME}}</td>
+    <td>{{data.ACTUAL_TIME}}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+
+
