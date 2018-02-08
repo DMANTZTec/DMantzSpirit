@@ -59,6 +59,22 @@ con.query(select, [email], function (error, results)
 });
 
 });
+
+
+router.get('/mywork',(req,res,next)=>
+{
+    var select="select * from mywork";
+    con.query(select,function (err,results)
+    {
+    if(err) throw err;
+    else
+    {
+        res.json(results);
+        console.log(results);
+    }
+});
+
+});
 /*
 router.get('/contacts',(req,res,next)=>{
 var sql="select * from person";

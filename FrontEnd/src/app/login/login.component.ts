@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router }  from '@angular/router';
 
 import {LoginService} from './login.service';
 import {LoginDetail} from './loginDetail';
@@ -12,13 +13,17 @@ import {LoginDetail} from './loginDetail';
 })
 export class LoginComponent implements OnInit {
   private loginDetails: LoginDetail[];
-  status: {};
+  private error;
   loginForm: FormGroup;
-  constructor(private _loginService: LoginService , private formBuilder: FormBuilder) { }
+  constructor(private _loginService: LoginService , private formBuilder: FormBuilder, private _router: Router) { }
 
-  checkLoginDetails() {
+    checkLoginDetails() {
     const loginDetails = this.loginForm.value;
     console.log(loginDetails);
+    if(loginDetails.email==""&&loginDetails.password=="")
+    {
+      this.error="make sure to enter mailid and password";
+    }
     this._loginService.checkLoginDetails(loginDetails).subscribe(status =>
     {
       //this.status = status;
@@ -26,13 +31,14 @@ export class LoginComponent implements OnInit {
       if(status.status=="login success")
       {
         console.log(status);
+        this._router.navigate(['/homepage']);
       }
     });
   }
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
-      password: ['', Validators.required],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$')])],
     });
   }
 

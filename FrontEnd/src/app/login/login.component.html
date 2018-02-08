@@ -7,13 +7,23 @@
 <form [formGroup]="loginForm" (submit)="checkLoginDetails()">
   <label id="email_label">EMAIL:</label>
   <input type="text" formControlName="email" id="email_box">
-  <p *ngIf="loginForm.controls.email.errors" id="error_mail">This field is required!</p>
+  <div *ngIf="loginForm.controls['email'].errors && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)||(loginForm.submitted)"
+       class="alert alert-danger">
+  <p [hidden]="!loginForm.controls['email'].hasError('required')" id="error_mail">email is mandatory</p>
+  <p [hidden]="!loginForm.controls['email'].hasError('pattern')" id="error_mail">enter valid email</p>
+  {{error}}
+  </div>
 
   <label id="password_label">PASSWORD:</label>
   <input type="password" formControlName="password" id="password_box">
-  <p *ngIf="loginForm.controls.password.errors" id="error_password">This field is required!</p>
+  <div *ngIf="loginForm.controls['password'].errors && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+       class="alert alert-danger">
+    <p [hidden]="!loginForm.controls['password'].hasError('required')" id="error_password">password is mandatory</p>
+    <p [hidden]="!loginForm.controls['password'].hasError('pattern')" id="error_password">enter valid password</p>
 
-  <button type="submit" id="submit">Login</button>
+  </div>
+
+  <button type="submit" id="submit" [disabled]="!loginForm.valid">Login</button>
 
 </form>
   <label id="label_rememberMe">Remember me</label>
