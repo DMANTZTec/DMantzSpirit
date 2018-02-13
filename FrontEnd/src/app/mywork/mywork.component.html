@@ -6,7 +6,7 @@
 
 <div id="label_username">UserLogin</div>
 
-<!--<button id="ADD_button" class="btn btn-default">ADD</button>-->
+<button id="ADD_button" class="btn btn-default" (click)="add();">ADD</button>
 
 <div id="div_Search">
   <input type="text" id="search_text" placeholder="Search input" class="fmorm-control" />
@@ -19,7 +19,8 @@
 </div>
 
 <div id="table_div">
-<table class="table">
+
+<table id="table">
   <thead>
   <tr>
     <th *ngFor="let column of columns">
@@ -27,8 +28,9 @@
     </th>
   </tr>
   </thead>
+
   <tbody>
-  <tr *ngFor="let data of myworkdata">
+  <tr *ngFor="let data of myworkdata;">
     <td>{{data.EMPLOYEE_NM}}</td>
     <td>{{data.SUBJECT_NM}}</td>
     <td>{{data.TOPIC_ID}}</td>
@@ -37,10 +39,23 @@
     <td>{{data.TOPIC_END_DT}}</td>
     <td>{{data.ESTIMATED_TIME}}</td>
     <td>{{data.ACTUAL_TIME}}</td>
+    <td width="200px"><button id="edit" (click)="edit(data)">EDIT</button><button id="view" (click)="view(data)">VIEW</button><button id="delete">DELETE</button></td>
   </tr>
   </tbody>
 </table>
 </div>
-
-
+<div id="addbox">
+  <form [formGroup]="createForm" id="form">
+  Employee Name:<input type="text" formControlName="EMPLOYEE_NM" id="EMPLOYEE_NM" >
+  Subject Name:<input type="text" formControlName="SUBJECT_NM" id="SUBJECT_NM">
+  Topic ID:<input type="text" formControlName="TOPIC_ID" id="TOPIC_ID">
+  Topic Name:<input type="text" formControlName="TOPIC_NM" id="TOPIC_NM">
+  Topic StartDate:<input type="text" formControlName="TOPIC_START_DT" id="TOPIC_START_DT">
+  Topic EndDate:<input type="text" formControlName="TOPIC_END_DT" id="TOPIC_END_DT">
+  Estimated time:<input type="text" formControlName="ESTIMATED_TIME" id="ESTIMATED_TIME">
+  Actual time:<input type="text" formControlName="ACTUAL_TIME" id="ACTUAL_TIME">
+  <button type="submit" id="create" style="display: none" (click)="AddNewMyworkData(createForm)">CREATE NEW</button>
+  <button type="submit" id="update" (click)="UpdateMyworkData(createForm.value)" style="display: none">UPDATE</button>
+  </form>
+</div>
 

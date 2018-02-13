@@ -36,6 +36,9 @@ con.query(select, [email], function (error, results)
             if ((results[0].password) == password)
             {
                 var status={"status":"login success"};
+                //var insert_stmt = 'INSERT INTO loggedinusers(email) SELECT * FROM (SELECT ?) ' +
+                  //  'AS tmp WHERE NOT EXISTS(SELECT email FROM loggedinusers WHERE email = ?)';
+                //con.query(insert_stmt,[email],[email],)
                 console.log(status);
                 res.send(status);
             }
@@ -69,12 +72,53 @@ router.get('/mywork',(req,res,next)=>
     if(err) throw err;
     else
     {
-        res.json(results);
+        res.send(results);
         console.log(results);
     }
 });
-
 });
+
+router.post('/insertmywork',(req,res,next)=>
+{
+    var request = req.body;
+    console.log(request);
+    var insert="insert into mywork(EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
+        "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?)";
+con.query(insert,[request.EMPLOYEE_NM,request.SUBJECT_NM,
+    request.TOPIC_ID,request.TOPIC_NM,
+    request.TOPIC_START_DT,request.TOPIC_END_DT,
+    request.ESTIMATED_TIME,request.ACTUAL_TIME],function (err,results)
+{
+    if(err) throw err;
+    else
+    {
+        res.send({"success":"success"});
+        console.log(results);
+    }
+});
+});
+
+router.post('/updatemywork',(req,res,next)=>
+{
+    var request = req.body.editdetails;
+    console.log(request);
+    var current=req.body.currentdetails;
+var update="update mywork set EMPLOYEE_NM=?,SUBJECT_NM=?,TOPIC_ID=?,TOPIC_NM=?,TOPIC_START_DT=?,TOPIC_END_DT=?,ESTIMATED_TIME=?,ACTUAL_TIME=? where EMPLOYEE_NM=? AND TOPIC_ID=?";
+con.query(update,[request.EMPLOYEE_NM,request.SUBJECT_NM,
+    request.TOPIC_ID,request.TOPIC_NM,
+    request.TOPIC_START_DT,request.TOPIC_END_DT,
+    request.ESTIMATED_TIME,request.ACTUAL_TIME,current.EMPLOYEE_NM,current.TOPIC_ID],function (err,results)
+{
+    if(err) throw err;
+    else
+    {
+        res.send({"success":"updated successfully"});
+        console.log(results);
+    }
+});
+});
+
+
 /*
 router.get('/contacts',(req,res,next)=>{
 var sql="select * from person";

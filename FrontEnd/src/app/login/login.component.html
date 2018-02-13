@@ -1,3 +1,4 @@
+<div *ngIf="loggedin">
 <div id="icon"></div>
 <div id="dmantz">
   <h1>DMANTZ</h1>
@@ -27,11 +28,72 @@
 
 </form>
   <label id="label_rememberMe">Remember me</label>
-  <input type="checkbox" id="checkbox">
-  <a href="" id="forgot">Forgot Password</a>
+  <input type="checkbox" id="checkbox" (click)="CheckedBox()">
+  <a href="" id="forgot" (click)="ForgotPassword()">Forgot Password</a>
   <label id="label_newuser">New User:</label>
-  <button id="register">Register</button>
+  <button id="register" (click)="Register()">NEW USER</button>
 </div>
+</div>
+<!--
+<div id="register_div">
+  <form [formGroup]="registerForm" (submit)="RegisterDetails()">
+    <label id="firstname_label">FIRSTNAME</label>
+    <input type="text" formControlName="firstname">
+    <label id="lastname_label">LASTNAME</label>
+    <input type="text" formControlName="lastname">
+    <label id="regemail_label">EMAIL:</label>
+    <input type="text" formControlName="email">
+    <label id="reg_password_label">PASSWORD:</label>
+    <input type="password" formControlName="password">
+    <label id="dob">DOB:</label>
+    <select id="year">
+      <option>1990</option>
+      <option>1991</option>
+      <option>1992</option>
+      <option>1993</option>
+      <option>1994</option>
+      <option>1995</option>
+      <option>1996</option>
+      <option>1997</option>
+      <option>1998</option>
+      <option>1999</option>
+      <option>2000</option>
+    </select>
+    <select id="month">
+      <option>January</option>
+      <option>Febraury</option>
+      <option>March</option>
+      <option>April</option>
+      <option>May</option>
+      <option>June</option>
+      <option>July</option>
+      <option>August</option>
+      <option>September</option>
+      <option>October</option>
+      <option>November</option>
+      <option>December</option>
+    </select>
+<select id="date">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  <option>6</option>
+  <option>7</option>
+  <option>8</option>
+  <option>9</option>
+  <option>10</option>
+</select>
+    <input type="text">
+    Enter Captcha:<input type="text">
+    <button type="submit" id="register1">Register</button>
+  </form>
+</div>
+-->
+
+
+
 
 <!--
 <div id="div_dmantz_icon">
