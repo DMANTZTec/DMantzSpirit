@@ -5,14 +5,32 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mysql=require('mysql');
+var MySQLStore = require('express-mysql-session');
+var session = require('express-session');
 var cors=require('cors');
 
 var route=require('./routes/route');
 var app = express();
-
+var options =
+    {
+    host    : 'localhost',
+    port    : '3306',
+    user    : 'shanti',
+    password: 'secret',
+    database: 'dmantz_spirit'
+};
+var sessionStore = new MySQLStore(options);
+app.use(session({
+    secret: 'secret',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false,
+    rolling:true
+}));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 app.get('/',(req,res)=>{
     res.send('welcome teja');
 });

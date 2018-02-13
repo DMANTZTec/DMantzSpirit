@@ -3,7 +3,8 @@ var mysql=require('mysql');
 var router=express.Router();
 var con = mysql.createConnection({
     host: "localhost",
-    user: "root",
+    port:"3306",
+    user: "shanti",
     password: "secret",
     database:"dmantz_spirit"
 });
@@ -11,7 +12,7 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
 });
-router.post('/login',(req,res,next)=>
+router.post('/login',function(req,res,next)
 {
     var request = req.body;
 console.log(request);
@@ -36,9 +37,16 @@ con.query(select, [email], function (error, results)
             if ((results[0].password) == password)
             {
                 var status={"status":"login success"};
-                //var insert_stmt = 'INSERT INTO loggedinusers(email) SELECT * FROM (SELECT ?) ' +
-                  //  'AS tmp WHERE NOT EXISTS(SELECT email FROM loggedinusers WHERE email = ?)';
-                //con.query(insert_stmt,[email],[email],)
+                var insert_stmt = 'INSERT INTO loggedinusers(email) SELECT * FROM (SELECT ?) ' +
+                    'AS tmp WHERE NOT EXISTS(SELECT email FROM loggedinusers WHERE email = ?)';
+                con.query(insert_stmt,[email,email],function (error, results) {
+                    if(error) throw error;
+                    else{
+                        console.log("inserted into loggedinusers");
+                    }
+                });
+                req.session.sessionid=email;
+                req.session.cookie.maxAge=3000;
                 console.log(status);
                 res.send(status);
             }

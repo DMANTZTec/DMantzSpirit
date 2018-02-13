@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router }  from '@angular/router';
-import { AuthHttp } from 'angular2-jwt-session';
-
 
 import {LoginService} from './login.service';
 import {LoginDetail} from './loginDetail';
@@ -16,10 +14,10 @@ export class LoginComponent implements OnInit {
   private loginDetails: LoginDetail[];
   private error;
   private router;
-  private loggedin=true;
+  private sess=localStorage.getItem('sess1');
   loginForm: FormGroup;
   registerForm:FormGroup;
-  constructor(public authHttp: AuthHttp,private _loginService: LoginService , private formBuilder: FormBuilder, private _router: Router) {
+  constructor(private _loginService: LoginService , private formBuilder: FormBuilder, private _router: Router) {
     this.router=_router;
   }
     checkLoginDetails() {
@@ -36,6 +34,7 @@ export class LoginComponent implements OnInit {
       if(status.status=="login success")
       {
         console.log(status);
+        localStorage.setItem('sess1',"teja1");
         this._router.navigate(['/homepage']);
       }
     });
@@ -55,7 +54,10 @@ export class LoginComponent implements OnInit {
       email: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$')])],
     });
+    if(this.sess)
+    {
+      this._router.navigate(['/homepage']);
+    }
     console.log(this.router.url);
-
   }
 }

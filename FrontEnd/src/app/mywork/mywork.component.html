@@ -1,3 +1,5 @@
+<div *ngIf="sess">
+<button id="logout" (click)="Logout()">LOGOUT</button>
 <div id="labeloflogo">LOGO</div>
 
 <div id="HeadingDmantz" class="nm-label">
@@ -57,5 +59,9 @@
   <button type="submit" id="create" style="display: none" (click)="AddNewMyworkData(createForm)">CREATE NEW</button>
   <button type="submit" id="update" (click)="UpdateMyworkData(createForm.value)" style="display: none">UPDATE</button>
   </form>
+</div>
+</div>
+<div *ngIf="!sess">
+  click here to <button (click)="Login()">login</button>
 </div>
 

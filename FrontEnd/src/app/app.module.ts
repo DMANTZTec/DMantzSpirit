@@ -16,6 +16,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
 }
 export const routes: Routes = [
+  {path:'',component:LoginComponent},
   { path: 'login', component: LoginComponent },
   { path: 'homepage', component: MyworkComponent }
 ];
