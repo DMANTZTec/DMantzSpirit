@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MyworkService} from './mywork.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {DropdownModule} from "ngx-dropdown";
 import { Router }  from '@angular/router';
+
 import {Mywork} from "./mywork";
 import {document} from "@angular/platform-browser/src/facade/browser";
 
@@ -15,13 +17,14 @@ export class MyworkComponent implements OnInit
   private myworkdata;
   private currentmyworkdata;
   createForm: FormGroup;
+  projectForm: FormGroup;
+  private form;
   private newmywork: Mywork[];
   private sess=localStorage.getItem('sess1');
-  private columns=["EMPLOYEE_NM","SUBJECT_NM","TOPIC_ID","TOPIC_NM",
+  private columns=["MYWORK_TYPE","EMPLOYEE_NM","SUBJECT_NM","TOPIC_ID","TOPIC_NM",
     "TOPIC_START_DT","TOPIC_END_DT","ESTIMATED_TIME","ACTUAL_TIME",""];
 
   constructor(private _myworkService: MyworkService,private formBuilder:FormBuilder,private _router: Router) {  }
-
   Logout()
   {
     localStorage.clear();
@@ -31,26 +34,37 @@ export class MyworkComponent implements OnInit
   {
     this._router.navigate(['/login']);
   }
-AddNewMyworkData()
+AddNewMyworkData(value)
 {
-  var createmywork = this.createForm.value;
+  this.form = value;
+  console.log(this.form);
+  var createmywork = this.form;
   console.log(createmywork);
   this._myworkService.AddNewMyworkData(createmywork).subscribe(data => {
     console.log(data);
     this.ngOnInit();
   });
 }
-add()
+ShowTopicForm()
 {
+  if ( document.getElementById('update').style.display == 'block')
+  {
+    document.getElementById('update').style.display = 'none';
+  }
   this.createForm.enable();
   this.createForm.reset();
-  if(document.getElementById('edit').style.display=='block')
-  {
-    document.getElementById('edit').style.display='none';
-  }
-  document.getElementById('create').style.display='block';
-
+  document.getElementById('create').style.display = 'block';
 }
+ShowProjectForm()
+{
+var modal_projecttask=document.getElementById('modal_projecttask');
+var close = document.getElementsByClassName("close")[0];
+    modal_projecttask.style.display = "block";
+  close.onclick = function() {
+    modal_projecttask.style.display = "none";
+  };
+}
+
 edit(data)
 {
   if ( document.getElementById('create').style.display == 'block')
@@ -111,6 +125,16 @@ view(data)
       TOPIC_NM:[''],
       TOPIC_START_DT:[''],
       TOPIC_END_DT:[''],
+      ESTIMATED_TIME:[''],
+      ACTUAL_TIME:['']
+    });
+    this.projectForm = this.formBuilder.group({
+      EMPLOYEE_NM:[''],
+      PROJECT_NM:[''],
+      TASK_ID:[''],
+      TASK_NM:[''],
+      TASK_START_DT:[''],
+      TASK_END_DT:[''],
       ESTIMATED_TIME:[''],
       ACTUAL_TIME:['']
     });
