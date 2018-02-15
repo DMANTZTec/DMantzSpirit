@@ -6,8 +6,13 @@
     <h1 id="contentofDmantz">DMANTZ<br/></h1>
 </div>
 
-<div id="label_username" (click)="UserProfile()">UserLogin
-<button id="logout" (click)="Logout()">LOGOUT</button>
+<div id="welcome">
+  <button id="userlogin">UserLogin</button>
+  <div id="profileoptions">
+  <button id="logout" (click)="Logout()">Logout</button>
+  <button id="profileupdate">Profile Update</button>
+  <button id="profileupdate1">Profile Update</button>
+  </div>
 </div>
 
   <div id="add_button_box">
@@ -24,16 +29,11 @@
 </div>
 
 <div class="tab">
-  <button id="mywork" >MYWORK</button>
-  <button id="tools" >TOOLS</button>
+  <button id="mywork" (click)="mywork()">MYWORK</button>
+  <button id="tools" (click)="tools()">TOOLS</button>
 </div>
-
-<!--<select id="add_select" style="display: none">
-  <option>Topic Task</option>
-  <option>Project Task</option>
-</select>-->
-
-<div id="table_div">
+<div *ngIf="toolsclicked" id="table1_div"></div>
+<div *ngIf="myworkclicked" id="table_div">
 <table id="table">
   <thead>
   <tr>

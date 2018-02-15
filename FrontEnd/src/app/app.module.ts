@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthHttp, AuthConfig } from 'angular2-jwt-session';
 import { Http, RequestOptions } from '@angular/http';
+import { DataTableModule } from 'angular-2-data-table';
 
 import { AppComponent } from './app.component';
 import {LoginService} from './login/login.service';

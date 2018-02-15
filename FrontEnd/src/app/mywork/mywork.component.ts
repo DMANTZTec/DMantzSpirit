@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MyworkService} from './mywork.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {DropdownModule} from "ngx-dropdown";
-import { Router }  from '@angular/router';
+import { Router } from '@angular/router';
 
 import {Mywork} from "./mywork";
 import {document} from "@angular/platform-browser/src/facade/browser";
@@ -19,18 +19,36 @@ export class MyworkComponent implements OnInit
   createForm: FormGroup;
   projectForm: FormGroup;
   private form;
+  private myworkclicked;
+  private toolsclicked;
   private newmywork: Mywork[];
   private sess=localStorage.getItem('sess1');
   private columns=["MYWORK_TYPE","EMPLOYEE_NM","SUBJECT_NM","TOPIC_ID","TOPIC_NM",
     "TOPIC_START_DT","TOPIC_END_DT","ESTIMATED_TIME","ACTUAL_TIME",""];
 
   constructor(private _myworkService: MyworkService,private formBuilder:FormBuilder,private _router: Router) {  }
-  Logout()
+mywork()
+{
+  this.myworkclicked = true;
+  this.toolsclicked=false;
+  this._myworkService. getMyworkData()
+    .subscribe(myworkdata => {
+      this . myworkdata = myworkdata;
+      this.view(myworkdata[0]);
+    });
+}
+tools()
+{
+  this.toolsclicked=true;
+  this.myworkclicked=false;
+  console.log("tools");
+}
+Logout()
   {
     localStorage.clear();
     this._router.navigate(['/login']);
   }
-  Login()
+Login()
   {
     this._router.navigate(['/login']);
   }
@@ -111,13 +129,9 @@ view(data)
   this.createForm.controls['ESTIMATED_TIME'].setValue(data.ESTIMATED_TIME);
   this.createForm.controls['ACTUAL_TIME'].setValue(data.ACTUAL_TIME);
 }
+
   ngOnInit()
   {
-    this._myworkService. getMyworkData()
-      .subscribe(myworkdata => {
-        this . myworkdata = myworkdata;
-        this.view(myworkdata[0]);
-      });
     this.createForm = this.formBuilder.group({
       EMPLOYEE_NM:[''],
       SUBJECT_NM:[''],
@@ -138,6 +152,6 @@ view(data)
       ESTIMATED_TIME:[''],
       ACTUAL_TIME:['']
     });
+    this.mywork();
   }
-
 }
