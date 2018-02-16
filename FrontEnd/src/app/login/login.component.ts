@@ -19,7 +19,11 @@ export class LoginComponent implements OnInit {
       {sid:"school",sname:"What is your first school name"}
     ]};
   private loggedin = true;
+  private sess=localStorage.getItem('sess1');
   loginForm: FormGroup;
+  registerForm:FormGroup;
+  constructor(private _loginService: LoginService , private formBuilder: FormBuilder, private _router: Router) {
+    this.router=_router;
   registerForm: FormGroup;
 
   constructor(private _loginService: LoginService, private formBuilder: FormBuilder, private _router: Router) {
@@ -37,6 +41,7 @@ export class LoginComponent implements OnInit {
       console.log(status);
       if (status.status == "login success") {
         console.log(status);
+        localStorage.setItem('sess1',"teja1");
         this._router.navigate(['/homepage']);
       }
     });
@@ -67,6 +72,10 @@ export class LoginComponent implements OnInit {
       email: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$')])],
     });
+    if(this.sess)
+    {
+      this._router.navigate(['/homepage']);
+    }
     console.log(this.router.url);
 
 // When the user clicks on <span> (x), close the modal span

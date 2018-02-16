@@ -25,10 +25,9 @@ export class MyworkService {
   UpdateMyworkData(editmywork,currentmyworkdata)
   {
     var headers = new Headers();
-    var data={editdetails:editmywork,currentdetails:currentmyworkdata};
+    var data= { editdetails: editmywork, currentdetails: currentmyworkdata};
     headers.append('Content-Type', 'application/json');
     return this._http.post('http://localhost:3000/api/updatemywork', data, {headers: headers})
       .map(res => res.json());
   }
 }
-

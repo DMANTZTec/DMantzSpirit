@@ -4,6 +4,7 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Http, RequestOptions } from '@angular/http';
+import { DataTableModule } from 'angular-2-data-table';
 
 import { AppComponent } from './app.component';
 import {LoginService} from './login/login.service';
@@ -13,6 +14,7 @@ import { MyworkService } from './mywork/mywork.service';
 
 
 export const routes: Routes = [
+  {path:'',component:LoginComponent},
   { path: 'login', component: LoginComponent },
   { path: 'homepage', component: MyworkComponent }
 ];

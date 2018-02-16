@@ -3,7 +3,8 @@ var mysql=require('mysql');
 var router=express.Router();
 var con = mysql.createConnection({
     host: "localhost",
-    user: "root",
+    port:"3306",
+    user: "shanti",
     password: "secret",
     database:"dmantz_spirit"
 });
@@ -11,7 +12,7 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
 });
-router.post('/login',(req,res,next)=>
+router.post('/login',function(req,res,next)
 {
     var request = req.body;
 console.log(request);
@@ -36,9 +37,16 @@ con.query(select, [email], function (error, results)
             if ((results[0].password) == password)
             {
                 var status={"status":"login success"};
-                //var insert_stmt = 'INSERT INTO loggedinusers(email) SELECT * FROM (SELECT ?) ' +
-                  //  'AS tmp WHERE NOT EXISTS(SELECT email FROM loggedinusers WHERE email = ?)';
-                //con.query(insert_stmt,[email],[email],)
+                var insert_stmt = 'INSERT INTO loggedinusers(email) SELECT * FROM (SELECT ?) ' +
+                    'AS tmp WHERE NOT EXISTS(SELECT email FROM loggedinusers WHERE email = ?)';
+                con.query(insert_stmt,[email,email],function (error, results) {
+                    if(error) throw error;
+                    else{
+                        console.log("inserted into loggedinusers");
+                    }
+                });
+                req.session.sessionid=email;
+                req.session.cookie.maxAge=3000;
                 console.log(status);
                 res.send(status);
             }
@@ -73,7 +81,7 @@ router.get('/mywork',(req,res,next)=>
     else
     {
         res.send(results);
-        console.log(results);
+        //console.log(results);
     }
 });
 });
@@ -82,20 +90,36 @@ router.post('/insertmywork',(req,res,next)=>
 {
     var request = req.body;
     console.log(request);
-    var insert="insert into mywork(EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
-        "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?)";
-con.query(insert,[request.EMPLOYEE_NM,request.SUBJECT_NM,
-    request.TOPIC_ID,request.TOPIC_NM,
-    request.TOPIC_START_DT,request.TOPIC_END_DT,
-    request.ESTIMATED_TIME,request.ACTUAL_TIME],function (err,results)
-{
-    if(err) throw err;
-    else
-    {
-        res.send({"success":"success"});
-        console.log(results);
+    if(request.SUBJECT_NM) {
+        var MYWORK_TYPE="TOPIC";
+        var insert = "insert into mywork(MYWORK_TYPE,EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
+            "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?,?)";
+        con.query(insert, [MYWORK_TYPE,request.EMPLOYEE_NM, request.SUBJECT_NM,
+            request.TOPIC_ID, request.TOPIC_NM,
+            request.TOPIC_START_DT, request.TOPIC_END_DT,
+            request.ESTIMATED_TIME, request.ACTUAL_TIME], function (err, results) {
+            if (err) throw err;
+            else {
+                res.send({"success": "success"});
+                console.log(results);
+            }
+        });
     }
-});
+    else if(request.PROJECT_NM){
+        var MYWORK_TYPE="PROJECT TASK";
+        var insert = "insert into mywork(MYWORK_TYPE,EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
+            "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?,?)";
+        con.query(insert, [MYWORK_TYPE,request.EMPLOYEE_NM, request.PROJECT_NM,
+            request.TASK_ID, request.TASK_NM,
+            request.TASK_START_DT, request.TASK_END_DT,
+            request.ESTIMATED_TIME, request.ACTUAL_TIME], function (err, results) {
+            if (err) throw err;
+            else {
+                res.send({"success": "success"});
+                console.log(results);
+            }
+        });
+    }
 });
 
 router.post('/updatemywork',(req,res,next)=>
