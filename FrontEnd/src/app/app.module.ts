@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthHttp, AuthConfig } from 'angular2-jwt-session';
 import { Http, RequestOptions } from '@angular/http';
 import { DataTableModule } from 'angular-2-data-table';
 
@@ -13,9 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { MyworkComponent } from './mywork/mywork.component';
 import { MyworkService } from './mywork/mywork.service';
 
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig(), http, options);
-}
+
 export const routes: Routes = [
   {path:'',component:LoginComponent},
   { path: 'login', component: LoginComponent },
@@ -34,11 +31,7 @@ export const routes: Routes = [
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [LoginService, MyworkService,{
-    provide: AuthHttp,
-    useFactory: authHttpServiceFactory,
-    deps: [Http, RequestOptions]
-  }],
+  providers: [LoginService, MyworkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
