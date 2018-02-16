@@ -1,4 +1,4 @@
-<div *ngIf="loggedin">
+
 <div id="icon"></div>
 <div id="dmantz">
   <h1>DMANTZ</h1>
@@ -21,7 +21,6 @@
        class="alert alert-danger">
     <p [hidden]="!loginForm.controls['password'].hasError('required')" id="error_password">password is mandatory</p>
     <p [hidden]="!loginForm.controls['password'].hasError('pattern')" id="error_password">enter valid password</p>
-
   </div>
 
   <button type="submit" id="submit" [disabled]="!loginForm.valid">Login</button>
@@ -31,21 +30,276 @@
   <input type="checkbox" id="checkbox" (click)="CheckedBox()">
   <a href="" id="forgot" (click)="ForgotPassword()">Forgot Password</a>
   <label id="label_newuser">New User:</label>
-  <button id="register" (click)="Register()">NEW USER</button>
+  <button id="register" (click)="registrationform()">NEW USER</button>
 </div>
+
+
+<div id="modal_register" class="modal_register">
+  <div class="modal-content_register">
+    <span class="close" (click)="Closeregister()">&times;</span>
+    <form [formGroup]="registerForm" (submit)="Insertintodatabase()">
+      Firstname:<input type="text" formControlName="firstname"><br/>
+      <div *ngIf="registerForm.controls['firstname'].errors && (registerForm.controls['firstname'].dirty || registerForm.controls['firstname'].touched)||(registerForm.submitted)"
+           class="alert alert-danger">
+        <p [hidden]="!registerForm.controls['firstname'].hasError('required')" id="error_firstname">email is mandatory</p>
+        <p [hidden]="!registerForm.controls['firstname'].hasError('pattern')" id="error_firstname">enter valid email</p>
+        {{error}}
+      </div>
+      lastname:<input type="text" formControlName="lastname"><br/>
+      <div *ngIf="registerForm.controls['lastname'].errors && (registerForm.controls['lastname'].dirty || registerForm.controls['lastname'].touched)||(registerForm.submitted)"
+           class="alert alert-danger">
+        <p [hidden]="!registerForm.controls['lastname'].hasError('required')" id="error_lastname">email is mandatory</p>
+        <p [hidden]="!registerForm.controls['lastname'].hasError('pattern')" id="error_lastname">enter valid email</p>
+        {{error}}
+      </div>
+       email:<input type="text" formControlName="registeremail"><br/>
+      <div *ngIf="registerForm.controls['registeremail'].errors && (registerForm.controls['registeremail'].dirty || registerForm.controls['registeremail'].touched)||(registerForm.submitted)"
+           class="alert alert-danger">
+        <p [hidden]="!registerForm.controls['registeremail'].hasError('required')" id="error_registeremail">email is mandatory</p>
+        <p [hidden]="!registerForm.controls['registeremail'].hasError('pattern')" id="error_registeremail">enter valid email</p>
+        {{error}}
+      </div>
+      password:<input type="text" formControlName="registerpassword"><br/>
+      <div *ngIf="registerForm.controls['registerpassword'].errors && (registerForm.controls['registerpassword'].dirty || registerForm.controls['registerpassword'].touched)||(registerForm.submitted)"
+           class="alert alert-danger">
+        <p [hidden]="!registerForm.controls['registerpassword'].hasError('required')" id="error_registerpassword">email is mandatory</p>
+        <p [hidden]="!registerForm.controls['registerpassword'].hasError('pattern')" id="error_registerpassword">enter valid email</p>
+        {{error}}
+      </div>
+      confirmpassword:<input type="text" formControlName="confirmpassword"><br/>
+      <div *ngIf="registerForm.controls['confirmpassword'].errors && (registerForm.controls['confirmpassword'].dirty || registerForm.controls['confirmpassword'].touched)||(registerForm.submitted)"
+           class="alert alert-danger">
+        <p [hidden]="!registerForm.controls['confirmpassword'].hasError('required')" id="error_confirmpassword">email is mandatory</p>
+        <p [hidden]="!registerForm.controls['confirmpassword'].hasError('pattern')" id="error_confirmpassword">enter valid email</p>
+        {{error}}
+      </div>
+      captcha:<input type="text" formControlName="captcha"><br/>
+      <div *ngIf="registerForm.controls['captcha'].errors && (registerForm.controls['captcha'].dirty || registerForm.controls['captcha'].touched)||(registerForm.submitted)"
+           class="alert alert-danger">
+        <p [hidden]="!registerForm.controls['captcha'].hasError('required')" id="error_captcha">email is mandatory</p>
+        <p [hidden]="!registerForm.controls['captcha'].hasError('pattern')" id="error_captcha">enter valid email</p>
+        {{error}}
+      </div>
+      captchaimage:<input type="text" formControlName="captchaimage"><br/>
+      Select Security Question:<select formControlName="registersecurity">
+      <option [selected]>Select security question</option>
+      <option *ngFor="let hmo of registersecurityQuestion.registersecurityQuestion"
+              [value]="hmo.sid">
+        {{hmo.sname}}
+      </option>
+    </select><br/>
+      Enter Security Answer:<input type="text" formControlName="registersecurity">
+      <button id="securityAnswerSubmit">Submit</button>
+    </form>
+  </div>
 </div>
-<!--
-<div id="register_div">
-  <form [formGroup]="registerForm" (submit)="RegisterDetails()">
-    <label id="firstname_label">FIRSTNAME</label>
-    <input type="text" formControlName="firstname">
-    <label id="lastname_label">LASTNAME</label>
-    <input type="text" formControlName="lastname">
-    <label id="regemail_label">EMAIL:</label>
-    <input type="text" formControlName="email">
-    <label id="reg_password_label">PASSWORD:</label>
-    <input type="password" formControlName="password">
-    <label id="dob">DOB:</label>
+
+
+
+<!--<div id="registration1" class="registration1">
+  <div id="register_modal" class="nm-label">
+    <span class="close">&times;</span>
+    <h1 id="h1_registration">
+      Registration Form<br/>
+    </h1>
+
+    <form [formGroup]="registerForm" (submit)="checkregisterDetails()">
+      <input type="text" formControlName="firstname" id="text_firstname" placeholder="Firstname" class="form-control" />
+
+        <h3 id="h1_firstname">
+          Firstname:<br/>
+        </h3>
+
+      <div id="div_lastname" class="nm-label">
+        <h3 id="h1_lastname">
+          Lastname:<br/>
+        </h3>
+      </div>
+      <input type="text" formControlName="lastname" id="text_lastname" placeholder="Lastname" class="form-control" />
+      <div id="div_email" class="nm-label">
+        <h3 id="h1_email">
+          Email:<br/>
+        </h3>
+      </div>
+      <input type="text" formControlName="registeremail" id="text_email" placeholder="Email" class="form-control" />
+
+      <div id="div_password" class="nm-label">
+        <h3 id="h1_password">
+          Password:<br/>
+        </h3>
+      </div>
+      <input type="text" formControlName="registerpassword" id="text_password" placeholder="Password" class="form-control" />
+
+      <div id="div_confirmpassword" class="nm-label">
+        <h3 id="h1_confirmpassword">
+          Confirm Password:<br/>
+        </h3>
+      </div>
+      <input type="text" formControlName="confirmpassword" id="text_confirmpassword" placeholder="password" class="form-control" />
+
+      <div id="div_securityquestion" class="nm-label">
+        <h3 id="h1_securityquestion">
+          Security Question:<br/>
+        </h3>
+      </div>
+
+      <select formControlName="securityquestion" id="dropdown_securityquestion" class="form-control">
+        <option>
+          Item 1
+        </option>
+        <option>
+          Item 2
+        </option>
+        <option>
+          Item 3
+        </option>
+      </select>
+      <input type="text" id="text_securityquestion" placeholder="Answer" class="form-control" />
+
+      <div id="div_captcha" class="nm-label">
+        <h3 id="h1_captcha">
+          Captcha:<br/>
+        </h3>
+      </div>
+      <input type="text" formControlName="captcha" id="text_captcha" placeholder="captchatext" class="form-control" />
+      <input type="text" formControlName="captchaimage" id="captcha_image" placeholder="Captcha image" class="form-control" />
+      <button id="SubmitButton" class="btn btn-default">
+        Submit
+      </button>
+      <!--<div id="div_DateofBirth" class="nm-label">
+        <h3 id="h1_DateofBirth">
+          Date of Birth<br/>
+        </h3>
+      </div>
+
+      <form id="button_DateofBirth" class="btn-group open">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="_31">
+          13 May 2013 <span class="caret"></span>
+        </button>
+        <select id="year">
+          <option>1990</option>
+          <option>1991</option>
+          <option>1992</option>
+          <option>1993</option>
+          <option>1994</option>
+          <option>1995</option>
+          <option>1996</option>
+          <option>1997</option>
+          <option>1998</option>
+          <option>1999</option>
+          <option>2000</option>
+        </select>
+        <select id="month">
+          <option>January</option>
+          <option>Febraury</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+        <select id="date">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+
+      </form>
+    </form>-->
+
+
+<!--<div id="registration">
+  <div id="div_registration" class="nm-label">
+    <span class="close">&times;</span>
+    <h1 id="h1_registration">
+      Registration Form<br/>
+    </h1>
+  </div>
+  <form [formGroup]="registerForm" (submit)="checkregisterDetails()">
+  <input type="text" formControlName="firstname" id="text_firstname" placeholder="Firstname" class="form-control" />
+  <div id="div_firstname" class="nm-label">
+    <h3 id="h1_firstname">
+      Firstname:<br/>
+    </h3>
+  </div>
+  <div id="div_lastname" class="nm-label">
+    <h3 id="h1_lastname">
+      Lastname:<br/>
+    </h3>
+  </div>
+  <input type="text" formControlName="lastname" id="text_lastname" placeholder="Lastname" class="form-control" />
+    <div id="div_email" class="nm-label">
+    <h3 id="h1_email">
+      Email:<br/>
+    </h3>
+  </div>
+  <input type="text" formControlName="registeremail" id="text_email" placeholder="Email" class="form-control" />
+
+  <div id="div_password" class="nm-label">
+    <h3 id="h1_password">
+      Password:<br/>
+    </h3>
+  </div>
+  <input type="text" formControlName="registerpassword" id="text_password" placeholder="Password" class="form-control" />
+
+  <div id="div_confirmpassword" class="nm-label">
+    <h3 id="h1_confirmpassword">
+      Confirm Password:<br/>
+    </h3>
+  </div>
+  <input type="text" formControlName="confirmpassword" id="text_confirmpassword" placeholder="password" class="form-control" />
+
+  <div id="div_securityquestion" class="nm-label">
+    <h3 id="h1_securityquestion">
+      Security Question:<br/>
+    </h3>
+  </div>
+
+  <select formControlName="securityquestion" id="dropdown_securityquestion" class="form-control">
+    <option>
+      Item 1
+    </option>
+    <option>
+      Item 2
+    </option>
+    <option>
+      Item 3
+    </option>
+  </select>
+  <input type="text" id="text_securityquestion" placeholder="Answer" class="form-control" />
+
+  <div id="div_captcha" class="nm-label">
+    <h3 id="h1_captcha">
+      Captcha:<br/>
+    </h3>
+  </div>
+  <input type="text" formControlName="captcha" id="text_captcha" placeholder="captchatext" class="form-control" />
+  <input type="text" formControlName="captchaimage" id="captcha_image" placeholder="Captcha image" class="form-control" />
+  <button id="SubmitButton" class="btn btn-default">
+    Submit
+  </button>
+  <!--<div id="div_DateofBirth" class="nm-label">
+    <h3 id="h1_DateofBirth">
+      Date of Birth<br/>
+    </h3>
+  </div>
+
+  <form id="button_DateofBirth" class="btn-group open">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="_31">
+      13 May 2013 <span class="caret"></span>
+    </button>
     <select id="year">
       <option>1990</option>
       <option>1991</option>
@@ -73,24 +327,86 @@
       <option>November</option>
       <option>December</option>
     </select>
-<select id="date">
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-  <option>6</option>
-  <option>7</option>
-  <option>8</option>
-  <option>9</option>
-  <option>10</option>
-</select>
-    <input type="text">
-    Enter Captcha:<input type="text">
-    <button type="submit" id="register1">Register</button>
-  </form>
-</div>
--->
+    <select id="date">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+    </select>
+
+  </form>-->
+
+
+  <!--function registrationform(){
+  document.getElementById("registration").style.display = "block";
+
+
+  }-->
+
+
+  <!--
+  <div id="register_div">
+    <form [formGroup]="registerForm" (submit)="RegisterDetails()">
+      <label id="firstname_label">FIRSTNAME</label>
+      <input type="text" formControlName="firstname">
+      <label id="lastname_label">LASTNAME</label>
+      <input type="text" formControlName="lastname">
+      <label id="regemail_label">EMAIL:</label>
+      <input type="text" formControlName="email">
+      <label id="reg_password_label">PASSWORD:</label>
+      <input type="password" formControlName="password">
+      <label id="dob">DOB:</label>
+      <select id="year">
+        <option>1990</option>
+        <option>1991</option>
+        <option>1992</option>
+        <option>1993</option>
+        <option>1994</option>
+        <option>1995</option>
+        <option>1996</option>
+        <option>1997</option>
+        <option>1998</option>
+        <option>1999</option>
+        <option>2000</option>
+      </select>
+      <select id="month">
+        <option>January</option>
+        <option>Febraury</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+  <select id="date">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+  </select>
+      <input type="text">
+      Enter Captcha:<input type="text">
+      <button type="submit" id="register1">Register</button>
+    </form>
+  </div>
+  -->
 
 
 
