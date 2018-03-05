@@ -13,29 +13,50 @@
   width: 95%;
   left:10px;
   top:28%;
-  overflow-y: auto;
 }
 table{
   border-collapse: collapse;
   height: 50%;
+  width: 100%;
 }
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+table tr.selected{
+  background-color:steelblue;
+  color: white;
+}
+tbody {
+  display:block;
+  height:200px;
+  overflow:auto;
+}
+thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+}
+tbody {
+  width: calc( 100% + 1em )
+}
+th select{
   font-size: 12px;
   font-family: "Times New Roman";
+  width: 100%;
+}
+td ,th{
+  border: 1px solid #dddddd;
+  text-align: center;
+  font-size: 12px;
+  font-family: "Times New Roman";
+  width: 50px;
 }
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-#div_form{
+#div_view_form{
   position: absolute;
   background-color: whitesmoke;
   bottom: 10px;
   top:80%;
-  height:24%;
   width:95%;
   border: solid;
   padding: 10px;
@@ -170,7 +191,7 @@ tr:nth-child(even) {
   background:rgba(153,55,153,1);
 }
 .tab button {
-  background-color: inherit;
+  background-color: gray;
   float: left;
   border: none;
   outline: none;
@@ -181,11 +202,60 @@ tr:nth-child(even) {
   width: 50%;
   color: white;
 }
+.modal-content_projecttask my-date-picker{
+  position: absolute;
+  width: 150px;
+  left:200px;
+}
+.modal-content_projecttask input{
+  position: absolute;
+  width: 150px;
+  height: 20px;
+  left:200px;
+}
+.modal-content_projecttask label{
+  position: absolute;
+  width: 150px;
+  height: 20px;
+}
+.modal-content_projecttask select{
+  position: absolute;
+  width: 150px;
+  height: 20px;
+  left:200px;
+}
+.modal-content_topictask div {
+  position: absolute;
+  background-color: red;
+  width: 150px;
+  height:32px;
+  text-align: center;
+}
+.modal-content_topictask select{
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  left:250px;
+  text-align: center;
+}
+.modal-content_topictask my-date-picker{
+  position: absolute;
+  width: 150px;
+  left:250px;
+  text-align: center;
+}
+.modal-content_topictask input{
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  left:250px;
+  text-align: center;
+}
 .tab button:hover {
-  background-color: violet;
+  background-color: lightgray;
 }
 .tab button.active {
-  background-color: #ccc;
+  background-color: red;
 }
 
 #labeloflogo
@@ -449,6 +519,39 @@ tr:nth-child(even) {
 }
 .close:hover,
 .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal_topictask {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content_topictask {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: center;
+}
+.closetopictask {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.closetopictask:hover,
+.closetopictask:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;

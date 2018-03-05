@@ -18,7 +18,7 @@ router.post('/login',function(req,res,next)
 console.log(request);
 var email = request.email;
 var password = request.password;
-var select = 'SELECT * FROM registeredusers WHERE email = ? limit 1';
+var select = 'SELECT * FROM registeredusers WHERE registeremail = ? limit 1';
 con.query(select, [email], function (error, results)
 {
     if (error)
@@ -33,10 +33,9 @@ con.query(select, [email], function (error, results)
         console.log('The solution is', results);
         if (results.length > 0)
         {
-            console.log(results[0].password);
-            if ((results[0].password) == password)
+            console.log(results[0].registerpassword);
+            if ((results[0].registerpassword) == password)
             {
-                var status={"status":"login success"};
                 var insert_stmt = 'INSERT INTO loggedinusers(email) SELECT * FROM (SELECT ?) ' +
                     'AS tmp WHERE NOT EXISTS(SELECT email FROM loggedinusers WHERE email = ?)';
                 con.query(insert_stmt,[email,email],function (error, results) {
@@ -45,10 +44,15 @@ con.query(select, [email], function (error, results)
                         console.log("inserted into loggedinusers");
                     }
                 });
-                req.session.sessionid=email;
-                req.session.cookie.maxAge=3000;
-                console.log(status);
-                res.send(status);
+                con.query(select,[email],function (error, results) {
+                    if(error) throw error;
+                    req.session.sessionid=email;
+                    req.session.cookie.maxAge=3000;
+                    var response={"status":"login success",userdetails:results[0],session:req.session.sessionid};
+                    res.send(response);
+                    console.log(response);
+                });
+
             }
             else
             {
@@ -96,7 +100,7 @@ router.post('/insertmywork',(req,res,next)=>
             "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?,?)";
         con.query(insert, [MYWORK_TYPE,request.EMPLOYEE_NM, request.SUBJECT_NM,
             request.TOPIC_ID, request.TOPIC_NM,
-            request.TOPIC_START_DT, request.TOPIC_END_DT,
+            request.TOPIC_START_DT.formatted, request.TOPIC_END_DT.formatted,
             request.ESTIMATED_TIME, request.ACTUAL_TIME], function (err, results) {
             if (err) throw err;
             else {
@@ -106,7 +110,7 @@ router.post('/insertmywork',(req,res,next)=>
         });
     }
     else if(request.PROJECT_NM){
-        var MYWORK_TYPE="PROJECT TASK";
+        var MYWORK_TYPE="PROJECT";
         var insert = "insert into mywork(MYWORK_TYPE,EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
             "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?,?)";
         con.query(insert, [MYWORK_TYPE,request.EMPLOYEE_NM, request.PROJECT_NM,
@@ -141,8 +145,67 @@ con.query(update,[request.EMPLOYEE_NM,request.SUBJECT_NM,
     }
 });
 });
-
-
+router.post('/checksecurityanswer',(req,res,next)=>
+{
+    var request = req.body;
+console.log(request);
+var email=req.body.email;
+var securityQuestion=req.body.securityquestion;
+var securityAnswer=req.body.securityanswer;
+var select_stmt="select email from registeredusers where email=?";
+con.query(select_stmt,[email],function (err,results)
+{
+    if(err)
+        throw err;
+    else
+    {
+        if(results) {
+            res.send({"success": "checked successfully"});
+            console.log(results);
+        }
+        else{
+            var status={error:"email not exists"};
+            res.send(status);
+        }
+    }
+});
+});
+router.get('/topictabledetails',(req,res,next)=>
+{
+var topictabledetails;
+var select_topic="select * from topic";
+con.query(select_topic,function (err,results)
+{
+    if(err) throw err;
+    topictabledetails=results;
+    res.send(topictabledetails);
+    console.log(topictabledetails);
+});
+});
+router.get('/employeetabledetails',(req,res,next)=>
+{
+var employeetabledetails;
+var select_employee="select * from employee";
+con.query(select_employee,function (err,results)
+{
+    if(err) throw err;
+    employeetabledetails=results;
+    res.send(employeetabledetails);
+    console.log(employeetabledetails);
+});
+});
+router.get('/subjecttabledetails',(req,res,next)=>
+{
+var subjecttabledetails;
+var select_subject="select * from subject";
+con.query(select_subject,function (err,results)
+{
+    if(err) throw err;
+    subjecttabledetails=results;
+    res.send(subjecttabledetails);
+    console.log(subjecttabledetails);
+});
+});
 /*
 router.get('/contacts',(req,res,next)=>{
 var sql="select * from person";

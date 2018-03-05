@@ -8,9 +8,8 @@ import { Router }  from '@angular/router';
 })
 export class AppComponent {
   private router;
-  constructor(private _router: Router)
-  {
-    this.router=_router;
+  constructor(private _router: Router) {
+    this.router = _router;
     console.log(this.router.url);
   }
 }

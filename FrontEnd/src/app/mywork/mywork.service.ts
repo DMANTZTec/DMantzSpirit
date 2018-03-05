@@ -30,4 +30,26 @@ export class MyworkService {
     return this._http.post('http://localhost:3000/api/updatemywork', data, {headers: headers})
       .map(res => res.json());
   }
+  gettopicdetails()
+  {
+    return this._http.get('http://localhost:3000/api/topictabledetails')
+      .map(res => res.json());
+  }
+  getemployeedetails()
+  {
+    return this._http.get('http://localhost:3000/api/employeetabledetails')
+      .map(res => res.json());
+  }
+  getsubjectdetails()
+  {
+    return this._http.get('http://localhost:3000/api/subjecttabledetails')
+      .map(res => res.json());
+  }
+  /*FilteringMyworkType() {
+    var headers = new Headers();
+    var data= { editdetails: editmywork, currentdetails: currentmyworkdata};
+    headers.append('Content-Type', 'application/json');
+    return this._http.post('http://localhost:3000/api/updatemywork', data, {headers: headers})
+      .map(res => res.json());
+  }*/
 }
