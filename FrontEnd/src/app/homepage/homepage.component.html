@@ -1,0 +1,26 @@
+<div *ngIf="sess">
+
+<div id="welcome">
+  <button id="userlogin">UserLogin</button>
+  <div id="profileoptions">
+    <button id="logout" (click)="Logout()">Logout</button>
+    <button id="profileupdate">Profile Update</button>
+    <button id="profileupdate1">Profile Update</button>
+  </div>
+</div>
+
+<div id="div_Search">
+  <input type="text" id="search_text" placeholder="Search input" class="fmorm-control" />
+  <button id="Search_button" class="btn btn-default">Search</button>
+</div>
+
+<div class="tab">
+  <button id="mywork" (click)="mywork()" [style.background-color]="getbackgroundMywork()">MYWORK</button>
+  <button id="tools" (click)="tools()" [style.background-color]="getbackgroundTools()">TOOLS</button>
+</div>
+</div>
+
+<div *ngIf="!sess">
+  click here to <a href="login" (click)="Login()">login</a>
+</div>
+<router-outlet></router-outlet>
