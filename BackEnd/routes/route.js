@@ -94,7 +94,14 @@ router.post('/insertmywork',(req,res,next)=>
 {
     var request = req.body;
     console.log(request);
-    if(request.SUBJECT_NM) {
+    /*if(request.TOPIC_END_DT==null){
+        request.TOPIC_END_DT=NULL;
+    }
+    if(request.TOPIC_START_DT==""){
+        request.TOPIC_START_DT=NULL;
+    }*/
+    console.log(request.TOPIC_END_DT);
+     if(request.SUBJECT_NM) {
         var MYWORK_TYPE="TOPIC";
         var insert = "insert into mywork(MYWORK_TYPE,EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
             "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?,?)";

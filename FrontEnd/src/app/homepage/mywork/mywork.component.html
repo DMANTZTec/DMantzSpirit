@@ -1,20 +1,5 @@
 <div *ngIf="sess">
 
-<div id="labeloflogo">LOGO</div>
-
-<div id="HeadingDmantz" class="nm-label">
-    <h1 id="contentofDmantz">DMANTZ<br/></h1>
-</div>
-
-<div id="welcome">
-  <button id="userlogin">UserLogin</button>
-  <div id="profileoptions">
-  <button id="logout" (click)="Logout()">Logout</button>
-  <button id="profileupdate">Profile Update</button>
-  <button id="profileupdate1">Profile Update</button>
-  </div>
-</div>
-
 <div id="add_button_box">
 <button id="add_button" class="btn btn-default">ADD</button>
   <div class="tab_add_dropdown">
@@ -23,15 +8,6 @@
 </div>
 </div>
 
-<div id="div_Search">
-  <input type="text" id="search_text" placeholder="Search input" class="fmorm-control" />
-  <button id="Search_button" class="btn btn-default">Search</button>
-</div>
-
-<div class="tab">
-  <button id="mywork" (click)="mywork()" [style.background-color]="getbackgroundMywork()">MYWORK</button>
-  <button id="tools" (click)="tools()" [style.background-color]="getbackgroundTools()">TOOLS</button>
-</div>
 <div *ngIf="toolsclicked" id="table1_div"></div>
 <div *ngIf="myworkclicked" id="table_div">
 <table id="table">
@@ -52,13 +28,13 @@
     <th>
       <select id="employeeselect" (change)="FilteringEmployee($event.target.value)">
         <option>EMPLOYEES</option>
-        <option *ngFor="let emp of selectColumns.employeenames" value="S.Vandana">{{emp}}</option>
+        <option *ngFor="let emp of selectColumns.employeenames" value="{{emp}}">{{emp}}</option>
       </select>
     </th>
     <th>
     <select id="subjectselect" (change)="FilteringSubject($event.target.value)">
       <option>SUBJECTS</option>
-      <option *ngFor="let sub of selectColumns.subjectnames" value="DMantzSpirit">{{sub}}</option>
+      <option *ngFor="let sub of selectColumns.subjectnames" value="{{sub}}">{{sub}}</option>
     </select>
   </th>
     <th>
@@ -132,10 +108,6 @@
       Actual Time:<input type="text" formControlName="ACTUAL_TIME">
     </form>
   </div>
-</div>
-
-<div *ngIf="!sess">
-  click here to <a href="login" (click)="Login()">login</a>
 </div>
 
 <div id="modal_projecttask" class="modal_projecttask">

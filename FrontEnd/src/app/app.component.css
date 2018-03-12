@@ -1,0 +1,53 @@
+#labeloflogo
+{
+  position: absolute;
+  width:74px;
+  height:45px;
+  left:20px;
+  opacity:1;
+  margin-left:0px;
+  margin-top:0px;
+  margin-right:0px;
+  margin-bottom:0px;
+  border-width:1px;
+  text-align:center;
+  font-family:Times New Roman;
+  font-size:35px;
+  color:rgba(227,22,91,1);
+  overflow:visible;
+  line-height:35px;
+  white-space:nowrap;
+}
+#HeadingDmantz
+{
+  position: absolute;
+  width:206px;
+  height:50px;
+  left:300px;
+  right:10%;
+  opacity:1;
+  margin-left:0px;
+  margin-top:0px;
+  margin-right:0px;
+  margin-bottom:0px;
+  border-width:1px;
+  text-align:left;
+  font-family:Times New Roman;
+  font-size:48px;
+  font-weight:bold;
+  color: rgb(235, 33, 130);
+  overflow:visible;
+  line-height:48px;
+  white-space:nowrap;
+}
+#contentofDmantz
+{
+  position: absolute;
+  text-align:right;
+  left:50px;
+  width:206px;
+  margin:0px;
+  font-size:48px;
+  line-height:48px;
+  top:1%;
+}
