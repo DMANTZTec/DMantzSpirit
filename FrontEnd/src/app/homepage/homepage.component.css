@@ -135,7 +135,6 @@
   width:47px;
   height:32px;
   left:280px;
-
   opacity:1;
   margin-left:0px;
   margin-top:0px;
@@ -178,16 +177,14 @@
 }
 .tab {
   position: absolute;
-  height: 30px;
+  height: 100px;
   width:20%;
   left:20%;
   top:11%;
   overflow: hidden;
-  border: 1px solid #ccc;
-  background:rgba(153,55,153,1);
 }
 .tab button {
-  background-color: gray;
+  background-color: lightgray;
   float: left;
   border: none;
   outline: none;
@@ -196,6 +193,40 @@
   font-size: 12px;
   width: 50%;
   text-align: center;
-  height: 100%;
+  height: 30px;
   color: white;
 }
+.tab button:hover{
+  background-color: lightblue;
+}
+.toolsDropdown{
+  position: absolute;
+  display: none;
+  height: 60px;
+  width:50%;
+  left:50%;
+  top:30%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid #ccc;
+
+}
+.toolsDropdown button{
+  color: black;
+  width: 100%;
+  height: 50%;
+  display: block;
+  border: none;
+  background-color: white;
+  text-align: center;
+  font-size: 14px;
+}
+.toolsDropdown button:hover{
+  background-color: #ddd;
+}
+#toolsdiv:hover .toolsDropdown{
+  display:block;
+}
+
+

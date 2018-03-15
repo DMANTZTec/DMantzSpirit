@@ -16,8 +16,15 @@
 
 <div class="tab">
   <button id="mywork" (click)="mywork()" [style.background-color]="getbackgroundMywork()">MYWORK</button>
+<div id="toolsdiv">
   <button id="tools" (click)="tools()" [style.background-color]="getbackgroundTools()">TOOLS</button>
+<div class="toolsDropdown">
+  <button id="topicstore" (click)="topicstoreSelected();">TopicStore</button>
+  <button id="projectstore" (click)="projectstoreSelected();">ProjectStore</button>
 </div>
+</div>
+</div>
+
 </div>
 
 <div *ngIf="!sess">

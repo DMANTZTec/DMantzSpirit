@@ -20,12 +20,12 @@ export class HomepageComponent implements OnInit {
   }
   getbackgroundMywork() {
     if (this.myworkclicked) {
-      return "lightgray";
+      return "gray";
     }
   }
   getbackgroundTools() {
     if (this.toolsclicked) {
-      return "lightgray";
+      return "gray";
     }
   }
   tools() {
@@ -33,7 +33,13 @@ export class HomepageComponent implements OnInit {
     this.myworkclicked = false;
     this.getbackgroundTools();
     console.log("tools");
-    this._router.navigate(['homepage/tools']);
+    this._router.navigate(['homepage/topicstore']);
+  }
+  projectstoreSelected(){
+    this._router.navigate(['homepage/projectstore']);
+  }
+  topicstoreSelected(){
+    this._router.navigate(['homepage/topicstore']);
   }
   Logout() {
     sessionStorage.clear();

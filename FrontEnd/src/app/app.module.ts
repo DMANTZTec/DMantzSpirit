@@ -13,15 +13,16 @@ import { MyworkComponent } from './homepage/mywork/mywork.component';
 import { MyworkService } from './homepage/mywork/mywork.service';
 import {AppService} from './app.service';
 import { HomepageComponent } from './homepage/homepage.component';
-import { ToolsComponent } from './homepage/tools/tools.component';
+import { TopicstoreComponent } from './homepage/topicstore/topicstore.component';
+import { ProjectstoreComponent } from './homepage/projectstore/projectstore.component';
 
 export const routes: Routes = [
   {path:'',component:LoginComponent},
   { path: 'login', component: LoginComponent },
   { path: 'homepage', component: HomepageComponent,children:[
     {path:'mywork',component:MyworkComponent},
-    {path:'tools',component:ToolsComponent},
-
+    {path:'topicstore',component:TopicstoreComponent},
+    {path:'projectstore',component:ProjectstoreComponent}
   ] }
 ];
 @NgModule({
@@ -30,7 +31,8 @@ export const routes: Routes = [
     LoginComponent,
     MyworkComponent,
     HomepageComponent,
-    ToolsComponent
+    TopicstoreComponent,
+    ProjectstoreComponent
   ],
   imports: [
     BrowserModule,
