@@ -1,7 +1,9 @@
 <div *ngIf="sess">
 
 <div id="welcome">
-  <button id="userlogin">UserLogin</button>
+  <div id="userlogin">
+    <img src="./app/images/userlogin.jpg">
+  </div>
   <div id="profileoptions">
     <button id="logout" (click)="Logout()">Logout</button>
     <button id="profileupdate">Profile Update</button>
@@ -17,17 +19,14 @@
 <div class="tab">
   <button id="mywork" (click)="mywork()" [style.background-color]="getbackgroundMywork()">MYWORK</button>
 <div id="toolsdiv">
-  <button id="tools" (click)="tools()" [style.background-color]="getbackgroundTools()">TOOLS</button>
+  <button id="tools" (click)="tools()" [style.background-color]="getbackgroundTools()" value="TOOLS">TOOLS</button>
 <div class="toolsDropdown">
-  <button id="topicstore" (click)="topicstoreSelected();">TopicStore</button>
-  <button id="projectstore" (click)="projectstoreSelected();">ProjectStore</button>
+  <button id="topicstore" (click)="topicstoreSelected();" value="TopicStore">TopicStore</button>
+  <button id="projectstore" (click)="projectstoreSelected();" value="ProjectStore">ProjectStore</button>
 </div>
 </div>
 </div>
 
 </div>
 
-<div *ngIf="!sess">
-  click here to <a href="login" (click)="Login()">login</a>
-</div>
 <router-outlet></router-outlet>

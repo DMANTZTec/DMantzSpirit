@@ -24,5 +24,17 @@ export class LoginService {
     return this._http.post('http://localhost:3000/api/checksecurityanswer', formdetails, {headers: headers})
       .map(res => res.json());
   }
+  CheckEmail(formdetails){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this._http.post('http://localhost:3000/api/checkemail', formdetails, {headers: headers})
+      .map(res => res.json());
+  }
+ResetPassword(details){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this._http.post('http://localhost:3000/api/resetpassword', details, {headers: headers})
+      .map(res => res.json());
+  }
 
 }

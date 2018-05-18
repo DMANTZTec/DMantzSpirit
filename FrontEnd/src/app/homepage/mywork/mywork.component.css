@@ -67,7 +67,7 @@ tr:nth-child(even) {
 #add_button_box{
   position: absolute;
   top:11%;
-  right:10%;
+  right:15%;
   padding: 10px;
   text-align: center;
 }

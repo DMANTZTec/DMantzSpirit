@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MyworkComponent } from './mywork/mywork.component';
+import {MyworkService} from "../services/mywork.service";
 
 @Component({
   selector: 'app-homepage',
@@ -11,12 +12,20 @@ export class HomepageComponent implements OnInit {
   private myworkclicked;
   private toolsclicked;
   private sess = sessionStorage.getItem('sessionid');
-  constructor( private _router: Router) {}
-  mywork(){
+  constructor( private _router: Router,private _myworkService:MyworkService) {}
+  mywork()
+  {
     this.myworkclicked = true;
     this.toolsclicked = false;
     this.getbackgroundMywork();
-    this._router.navigate(['homepage/mywork']);
+    if(!this.sess){
+          this._router.navigate(['/login']);
+    }
+    else
+        this._router.navigate(['homepage/mywork']);
+        //if(document.getElementById('tools').=='TOOLS')
+       // console.log("tools hhjgfd");
+   // document.getElementById('tools').innerText='TOOLS';
   }
   getbackgroundMywork() {
     if (this.myworkclicked) {
@@ -36,21 +45,28 @@ export class HomepageComponent implements OnInit {
     this._router.navigate(['homepage/topicstore']);
   }
   projectstoreSelected(){
+    this.toolsclicked = true;
+    this.myworkclicked = false;
+    this.getbackgroundTools();
     this._router.navigate(['homepage/projectstore']);
+    document.getElementById('tools').innerText='ProjectStore';
+    //document.getElementById('tools').value='ProjectStore';
+
   }
   topicstoreSelected(){
+    this.toolsclicked = true;
+    this.myworkclicked = false;
+    this.getbackgroundTools();
     this._router.navigate(['homepage/topicstore']);
+    document.getElementById('tools').innerText='TopicStore';
+   // document.getElementById('tools').value='TopicStore';
   }
   Logout() {
     sessionStorage.clear();
     this._router.navigate(['/login']);
   }
-
-  Login() {
-    this._router.navigate(['/login']);
-  }
   ngOnInit() {
+  
     this.mywork();
   }
-
 }

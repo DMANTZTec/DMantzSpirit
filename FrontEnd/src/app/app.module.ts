@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import {LoginService} from './login/login.service';
 import { LoginComponent } from './login/login.component';
 import { MyworkComponent } from './homepage/mywork/mywork.component';
-import { MyworkService } from './homepage/mywork/mywork.service';
+import {MyworkService} from "./services/mywork.service";
 import {AppService} from './app.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TopicstoreComponent } from './homepage/topicstore/topicstore.component';

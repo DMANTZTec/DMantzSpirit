@@ -1,3 +1,122 @@
-<p>
-  projectstore works!
-</p>
+
+  <div id="add_button_box">
+    <button id="add_button" class="btn btn-default" (click)="AddNewProjectTask()">ADD PROJECT</button>
+  </div>
+
+  <div id="table_div">
+    <table id="table">
+      <thead>
+      <tr>
+        <th>
+          <select id="employeeselect">
+            <option>EMPLOYEES</option>
+            <option *ngFor="let emp of employeedetails" value="{{emp.EMPLOYEE_NM}}">{{emp.EMPLOYEE_NM}}</option>
+          </select>
+        </th>
+        <th>
+          <select id="projectselect">
+            <option>PROJECTS</option>
+            <option *ngFor="let project of projectdetails" value="{{project.SUBJECT_NM}}">{{project.SUBJECT_NM}}</option>
+          </select>
+        </th>
+        <th>
+          <select id="modules">
+          <option>MODULES</option>
+          <option *ngFor="let module of moduledetails" value="{{module}}">{{module}}</option>
+        </select>
+        </th>
+        <th>
+          <select>
+            <option value="TASKIDS">TASKIDS</option>
+            <option *ngFor="let task of taskids" value="{{task}}">{{task}}</option>
+          </select>
+        </th>
+        <th>
+          <select>
+            <option value="TASKNAMES">TASKNAMES</option>
+            <option *ngFor="let task of tasknames" value="{{task}}">{{task}}</option>
+          </select>
+        </th>
+        <th>
+          <select>
+            <option *ngFor="let column of columns" value="{{type}}"></option>
+          </select>
+        </th>
+        <th>
+          <select>
+            <option *ngFor="let column of columns" value="{{type}}"></option>
+          </select>
+        </th>
+        <th>  </th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let data of displaymyworkdata;let i=index" (click)="TableRowClicked(data,i)" [class.selected]="i === selectedRow">
+        <td>{{data.EMPLOYEE_NM}}</td>
+        <td>{{data.SUBJECT_NM}}</td>
+        <td>{{data.TOPIC_ID}}</td>
+        <td>{{data.TOPIC_NM}}</td>
+        <td>{{data.TOPIC_START_DT}}</td>
+        <td>{{data.TOPIC_END_DT}}</td>
+        <td>{{data.ESTIMATED_TIME}}</td>
+        <td>{{data.ACTUAL_TIME}}</td>
+        <td width="200px">
+          <button id="edit" (click)="edit(data)">EDIT</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+<div id="modal_projecttask" class="modal_projecttask" style="display: none">
+  <div class="modal-content_projecttask">
+    <span class="close" (click)="close()">&times;</span>
+    <form [formGroup]="projectForm" id="projectform">
+      <label>Employee Name:</label>
+      <input type="text" formControlName="EMPLOYEE_NM" readonly><br/><br/>
+      <label>Module</label>
+      <select formControlName="MODULES">
+        <option *ngFor="let module of moduledetails"
+                [value]="module">
+          {{module}}
+        </option>
+      </select><br/><br/>
+      <label>Project Name:</label>
+      <select formControlName="PROJECT_NM">
+        <option *ngFor="let project of projects"
+                [value]="project">
+          {{project}}
+        </option>
+      </select><br/><br/>
+      <!--<label>Module</label>
+      <select formControlName="MODULE" (change)="TopicIDSelected($event.target.value)">
+        <option *ngFor="let topic of topics"
+                [value]="topic.tid">
+          {{topic.tid}}
+        </option>
+      </select><br/>-->
+      <label>Task ID:</label>
+      <select formControlName="TASK_ID" (change)="TopicIDSelected($event.target.value)">
+        <option *ngFor="let topic of topics"
+                [value]="topic.tid">
+          {{topic.tid}}
+        </option>
+      </select><br/>
+      <label>Task Name:</label>
+      <input type="text" formControlName="TASK_NM"><br/><br/>
+      <label>Task StartDate:</label>
+      <my-date-picker [options]="myDatePickerOptions"
+                      (dateChanged)="onDateChanged($event)"
+                      [selDate]="selectedDate" formControlName="TASK_START_DT"></my-date-picker><br/><br/>
+      <label>Estimated time:</label>
+      <input type="text" formControlName="ESTIMATED_TIME"><br/><br/>
+
+      <button type="submit" id="createproject" (click)="AddNewMyworkData(projectForm.value)" style="display: none">CREATE</button><br/>
+      <button type="submit" id="updateproject" (click)="AddNewMyworkData(projectForm.value)" style="display: none">UPDATE</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.ts" line="14" mnemonic="7" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="397ff4b7-dc59-4f01-a727-41aa827a4c93" name="Default" comment="commit after topic and project store separated">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BackEnd/routes/route.js" afterPath="$PROJECT_DIR$/BackEnd/routes/route.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/package.json" afterPath="$PROJECT_DIR$/FrontEnd/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.module.ts" afterPath="$PROJECT_DIR$/FrontEnd/src/app/app.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.css" afterPath="$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.html" afterPath="$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.ts" afterPath="$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.ts" afterPath="$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.css" afterPath="$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.html" afterPath="$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.ts" afterPath="$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrontEnd/src/app/login/login.component.ts" afterPath="$PROJECT_DIR$/FrontEnd/src/app/login/login.component.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.service.ts" afterPath="$PROJECT_DIR$/FrontEnd/src/app/services/mywork.service.ts" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="DMantzSpirit" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="mywork.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="903">
+              <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projectstore.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-117">
+              <caret line="22" column="49" lean-forward="false" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projectstore.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1428">
+              <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="e#2419#2426#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homepage.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homepage.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="19" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mywork.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/services/mywork.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getItem</find>
+      <find>filter</find>
+      <find>add_button_box</find>
+      <find>overflow-</find>
+      <find>overflow</find>
+      <find>mywork</find>
+      <find>div_Search</find>
+      <find>ta</find>
+      <find>tabl</find>
+      <find>tab</find>
+      <find>div_s</find>
+      <find>filtereddata</find>
+      <find>viewF</find>
+      <find>labeloflogo</find>
+      <find>welcome</find>
+      <find>hover</find>
+      <find>.tab</find>
+      <find>tab_</find>
+      <find>employeen</find>
+      <find>topicdetails</find>
+      <find>!sess</find>
+      <find>sess</find>
+      <find>get</find>
+      <find>getMy</find>
+      <find>selectColumns</find>
+      <find>subjectde</find>
+      <find>employeede</find>
+      <find>getEmpl</find>
+      <find>gray</find>
+      <find>getbackgroundMywork</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/login/login.service.ts" />
+        <option value="$PROJECT_DIR$/BackEnd/app.js" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.service.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/app.service.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/package.json" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/login/login.component.html" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/app.component.css" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.html" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.css" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.html" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/tools/tools.component.html" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.css" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.css" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/login/login.component.ts" />
+        <option value="$PROJECT_DIR$/BackEnd/routes/route.js" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/services/mywork.service.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.html" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.css" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.html" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/BackEnd/package.json" />
+    <package-json value="$PROJECT_DIR$/FrontEnd/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/BackEnd/node_modules" />
+    <handled-path value="$PROJECT_DIR$/FrontEnd/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="694" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DMantzSpirit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DMantzSpirit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DMantzSpirit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DMantzSpirit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="homepage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DMantzSpirit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DMantzSpirit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="D:/java/ibot_p01" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="two.files.diff.last.used.file" value="D:/DMantzSpirit/FrontEnd/src/app/login/login.component.ts" />
+    <property name="SearchEverywhereHistoryKey" value="myworktype&#9;null&#9;null&#10;@compenent&#9;null&#9;null&#10;input&#9;null&#9;null" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Node_WS\DMantzSpirit\FrontEnd\src\app\services" />
+      <recent name="D:\Node_WS\DMantzSpirit\FrontEnd\src\app\homepage" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.ng serve">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="ng serve" type="js.build_tools.npm" factoryName="npm">
+      <package-json value="$PROJECT_DIR$/FrontEnd/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.bin\www" />
+      <item index="1" class="java.lang.String" itemvalue="npm.ng serve" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="397ff4b7-dc59-4f01-a727-41aa827a4c93" name="Default" comment="" />
+      <created>1518764295882</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518764295882</updated>
+      <workItem from="1518764297757" duration="1200000" />
+      <workItem from="1518765569587" duration="9619000" />
+      <workItem from="1519015440948" duration="3003000" />
+      <workItem from="1519019125572" duration="11596000" />
+      <workItem from="1519101635870" duration="22380000" />
+      <workItem from="1519274596496" duration="8577000" />
+      <workItem from="1519359599439" duration="15594000" />
+      <workItem from="1519619193802" duration="22918000" />
+      <workItem from="1519704267352" duration="2890000" />
+      <workItem from="1519707861357" duration="21742000" />
+      <workItem from="1519800998891" duration="16753000" />
+      <workItem from="1519895343888" duration="73000" />
+      <workItem from="1519964913102" duration="13004000" />
+      <workItem from="1520065568524" duration="3078000" />
+      <workItem from="1520226614317" duration="9803000" />
+      <workItem from="1520311037069" duration="3828000" />
+      <workItem from="1520397349792" duration="3499000" />
+      <workItem from="1520484069985" duration="17205000" />
+      <workItem from="1520569648096" duration="20303000" />
+      <workItem from="1520608213904" duration="2005000" />
+      <workItem from="1520669870882" duration="5397000" />
+      <workItem from="1520683415113" duration="1900000" />
+      <workItem from="1520829610115" duration="2370000" />
+      <workItem from="1520836847277" duration="725000" />
+      <workItem from="1520918804972" duration="2271000" />
+      <workItem from="1521092100372" duration="13048000" />
+      <workItem from="1521175552188" duration="10418000" />
+      <workItem from="1521190551119" duration="9516000" />
+      <workItem from="1521433707139" duration="8938000" />
+      <workItem from="1521519413790" duration="710000" />
+      <workItem from="1521608280602" duration="2013000" />
+      <workItem from="1521694283296" duration="236000" />
+      <workItem from="1524817215774" duration="2239000" />
+      <workItem from="1525062297408" duration="14744000" />
+      <workItem from="1525147881981" duration="3747000" />
+      <workItem from="1525323510312" duration="3473000" />
+    </task>
+    <task id="LOCAL-00001" summary="commit after mywork">
+      <created>1520232059575</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1520232059575</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit after mywork">
+      <created>1520837370574</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1520837370574</updated>
+    </task>
+    <task id="LOCAL-00003" summary="commit after mywork and tools separated">
+      <created>1520837534522</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1520837534522</updated>
+    </task>
+    <task id="LOCAL-00004" summary="commit after topic and project store separated">
+      <created>1521098985310</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1521098985310</updated>
+    </task>
+    <task id="LOCAL-00005" summary="commit after topic and project store separated">
+      <created>1521099074580</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1521099074580</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="290815000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1384" height="752" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31391585" sideWeight="0.53001463" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.81186444" sideWeight="0.46998537" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34067798" sideWeight="0.4938838" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19954129" sideWeight="0.4720358" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22782874" sideWeight="0.52796423" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit after mywork" />
+    <MESSAGE value="commit after mywork and tools separated" />
+    <MESSAGE value="commit after topic and project store separated" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit after topic and project store separated" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="9" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.ts" />
+    <entry file="file://$PROJECT_DIR$/BackEnd/routes/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1470">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.service.ts" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.html" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.ts" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.service.ts" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.html" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.ts" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.css" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/node_modules/@types/es6-shim/index.d.ts" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/login/login.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="293" column="1" lean-forward="false" selection-start-line="293" selection-start-column="1" selection-end-line="293" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/login/login.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.service.ts" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/dist/out-tsc/app/mywork/mywork.component.js" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.ts" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.css" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/mywork/mywork.component.html" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="2" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/tools/tools.component.html" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/tools/tools.component.ts" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/tools/tools.component.css" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/topicstore/topicstore.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="106" column="14" lean-forward="true" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.service.ts" />
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="48" column="31" lean-forward="false" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/login/loginDetail.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/routes/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="62" column="30" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1638">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/login/login.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="172" column="0" lean-forward="true" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="80" column="28" lean-forward="true" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/mywork/mywork.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#58#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/services/mywork.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="186" column="29" lean-forward="false" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="19" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1428">
+          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#2419#2426#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/projectstore/projectstore.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="22" column="49" lean-forward="false" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/homepage/homepage.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>BackEnd</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

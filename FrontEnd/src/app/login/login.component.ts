@@ -16,11 +16,15 @@ export class LoginComponent implements OnInit {
   private userdetails;
   private error;
   private router;
-  private sess=localStorage.getItem('sess1');
+  private forgotemaildetails;
+  private currentemail;
+  private remembermeclicked;
+  //private sess=localStorage.getItem('sess1');
   loginForm: FormGroup;
   resetpasswordForm:FormGroup;
   forgotpasswordForm: FormGroup;
   registerForm:FormGroup;
+  showsecurityquestionForm:FormGroup;
   private submittedSecurityAnswer=true;
   private securityQuestions={securityQuestions:
     [{sid:"colour",sname:"What is your favourite colour"},
@@ -32,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.router=_router;
   }
     checkLoginDetails() {
-    const loginDetails = this.loginForm.value;
+    const loginDetails = this.loginForm.value;    
     console.log(loginDetails);
     if(loginDetails.email==""&&loginDetails.password=="")
     {
@@ -43,12 +47,17 @@ export class LoginComponent implements OnInit {
       console.log(data);
       if(data.status=="login success")
       {
+        if(this.remembermeclicked==true)
+        localStorage.setItem('email',loginDetails.email);
         this._appservice.userdetails=data.userdetails;
         sessionStorage.setItem('sessionid',data.userdetails.registeremail);
         sessionStorage.setItem('sessiondetails',data.userdetails.firstname);
         this._router.navigate(['/homepage']);
       }
     });
+  }
+  RememberingEmail(){
+    this.remembermeclicked=true;
   }
   ForgotPassword()
   {
@@ -59,34 +68,72 @@ export class LoginComponent implements OnInit {
     var modal_forgotpassword1=document.getElementById('modal_forgotpassword1');
     modal_forgotpassword1.style.display = "none";
   }
-  CheckSecurityAnswer()
-  {
-    var modal_forgotpassword1=document.getElementById('modal_forgotpassword1');
-    modal_forgotpassword1.style.display = "none";
+  CheckSecurityAnswer(){
+    var formdetails=this.showsecurityquestionForm.value;
+    console.log(formdetails);
+    if(formdetails.securityanswer==this.forgotemaildetails.securityanswer){
+      var modal_showsecurityquestion=document.getElementById('modal_showsecurityquestion');
+      modal_showsecurityquestion.style.display = "none";
       var modal_forgotpassword2=document.getElementById('modal_forgotpassword2');
-      modal_forgotpassword2.style.display = "block";
-
+       modal_forgotpassword2.style.display = "block";
+    }
+    else
+      console.log("not equal");
+  }
+  CheckEmail()
+  {
     var formdetails=this.forgotpasswordForm.value;
     console.log(formdetails);
-    this._loginService.CheckSecurityAnswer(formdetails).subscribe(status =>
+    this._loginService.CheckEmail(formdetails).subscribe(response =>
     {
-      console.log(status);
+      console.log(response);
+      this.forgotemaildetails=response.emaildetails;
+      if(response.emailstatus=="exists"){
+        var modal_forgotpassword1=document.getElementById('modal_forgotpassword1');
+       modal_forgotpassword1.style.display = "none";
+      var modal_showsecurityquestion=document.getElementById('modal_showsecurityquestion');
+      modal_showsecurityquestion.style.display = "block";
+        for(var i=0;i<this.securityQuestions.securityQuestions.length;i++){
+         if(this.securityQuestions.securityQuestions[i].sid==response.emaildetails.securityquestion)
+      this.showsecurityquestionForm.controls['securityquestion'].setValue(this.securityQuestions.securityQuestions[i].sname); 
+        }
+      }
     });
   }
+  closeshowsecurityquestion(){
+  var modal_showsecurityquestion=document.getElementById('modal_showsecurityquestion');
+    modal_showsecurityquestion.style.display = "none";
+  }
+  
   CloseForgotPasssword2(){
     var modal_forgotpassword2=document.getElementById('modal_forgotpassword2');
     modal_forgotpassword2.style.display = "none";
   }
+  
+  ResetPassword(){
+    var formdetails=this.resetpasswordForm.value;
+    var checkpassworddetails={email:this.forgotemaildetails.registeremail,password:formdetails.password};
+    console.log(checkpassworddetails);
+    this._loginService.ResetPassword(checkpassworddetails).subscribe(response =>
+    {
+      console.log(response);
+    });
+  }
+  
   ngOnInit() {
+    var rememberedemail=localStorage.getItem('email');
     this.resetpasswordForm=this.formBuilder.group({
       password:[''],
       confirmpassword:['']
     });
     this.forgotpasswordForm = this.formBuilder.group({
-      email:[''],
+      email:['']
+       });
+    this.showsecurityquestionForm = this.formBuilder.group({
       securityquestion:[''],
       securityanswer:['']
-    });
+       });
+    
     this.registerForm=this.formBuilder.group({
       firstname:[''],
       lastname:[''],
@@ -101,10 +148,10 @@ export class LoginComponent implements OnInit {
       email: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$')])],
     });
-    if(this.sess)
+    /*if(this.sess)
     {
       this._router.navigate(['/homepage']);
     }
-    console.log(this.router.url);
+    console.log(this.router.url);*/
   }
 }

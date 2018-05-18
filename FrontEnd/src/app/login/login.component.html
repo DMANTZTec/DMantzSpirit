@@ -22,7 +22,7 @@
 
 </form>
   <label id="label_rememberMe">Remember me</label>
-  <input type="checkbox" id="checkbox" (click)="CheckedBox()">
+  <input type="checkbox" id="checkbox" (click)="RememberingEmail()">
   <a href="#" id="forgot" (click)="ForgotPassword()">Forgot Password</a>
   <label id="label_newuser">New User:</label>
   <button id="register" (click)="Register()">NEW USER</button>
@@ -31,26 +31,31 @@
 <div id="modal_forgotpassword1" class="modal_forgotpassword1">
   <div class="modal-content_forgotpassword1">
     <span class="close" (click)="CloseForgotPasssword1()">&times;</span>
-    <form [formGroup]="forgotpasswordForm" (submit)="CheckSecurityAnswer()">
+    <form [formGroup]="forgotpasswordForm" (submit)="CheckEmail()">
       Enter Email:<input type="text" formControlName="email"><br/>
-      Select Security Question:<select formControlName="securityquestion">
-        <option *ngFor="let hmo of securityQuestions.securityQuestions"
-                [value]="hmo.sid">
-          {{hmo.sname}}
-        </option>
-      </select><br/>
+      <button id="emailsubmitofforgotpassword">Submit</button>
+    </form>
+  </div>
+</div>
+
+<div id="modal_showsecurityquestion" class="modal_showsecurityquestion">
+  <div class="modal-content_showsecurityquestion">
+    <span class="close" (click)="closeshowsecurityquestion()">&times;</span>
+    <form [formGroup]="showsecurityquestionForm" (submit)="CheckSecurityAnswer()">
+      Security Question:<input type="text" formControlName="securityquestion"><br/>
       Enter Security Answer:<input type="text" formControlName="securityanswer"><br/>
       <button id="securityAnswerSubmit">Submit</button>
     </form>
   </div>
 </div>
 
+
 <div id="modal_forgotpassword2" class="modal_forgotpassword2">
   <div class="modal-content_forgotpassword2">
     <span class="close" (click)="CloseForgotPasssword2()">&times;</span>
     <form [formGroup]="resetpasswordForm" (submit)="ResetPassword()">
       Enter New Password:<input type="password" formControlName="password"><br/>
-      Confirm Password:<input type="text" formControlName="confirmpassword"><br/>
+      Confirm Password:<input type="password" formControlName="confirmpassword"><br/>
       <button id="resetpassword">Reset Password</button>
     </form>
   </div>

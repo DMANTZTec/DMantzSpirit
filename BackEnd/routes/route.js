@@ -75,7 +75,6 @@ con.query(select, [email], function (error, results)
 
 });
 
-
 router.get('/mywork',(req,res,next)=>
 {
     var select="select * from mywork";
@@ -92,45 +91,48 @@ router.get('/mywork',(req,res,next)=>
 
 router.post('/insertmywork',(req,res,next)=>
 {
-    var request = req.body;
-    console.log(request);
-    /*if(request.TOPIC_END_DT==null){
-        request.TOPIC_END_DT=NULL;
+var request = req.body;
+console.log(request);
+for (var key in request) {
+    if (request.hasOwnProperty(key)) {
+        console.log(key + " -> " + request[key]);
+        if(request[key]==null){
+            request[key]='NULL';
+        }
     }
-    if(request.TOPIC_START_DT==""){
-        request.TOPIC_START_DT=NULL;
-    }*/
-    console.log(request.TOPIC_END_DT);
-     if(request.SUBJECT_NM) {
-        var MYWORK_TYPE="TOPIC";
-        var insert = "insert into mywork(MYWORK_TYPE,EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
-            "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?,?)";
-        con.query(insert, [MYWORK_TYPE,request.EMPLOYEE_NM, request.SUBJECT_NM,
-            request.TOPIC_ID, request.TOPIC_NM,
-            request.TOPIC_START_DT.formatted, request.TOPIC_END_DT.formatted,
-            request.ESTIMATED_TIME, request.ACTUAL_TIME], function (err, results) {
-            if (err) throw err;
-            else {
-                res.send({"success": "success"});
-                console.log(results);
-            }
-        });
-    }
-    else if(request.PROJECT_NM){
-        var MYWORK_TYPE="PROJECT";
-        var insert = "insert into mywork(MYWORK_TYPE,EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
-            "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?,?)";
-        con.query(insert, [MYWORK_TYPE,request.EMPLOYEE_NM, request.PROJECT_NM,
-            request.TASK_ID, request.TASK_NM,
-            request.TASK_START_DT, request.TASK_END_DT,
-            request.ESTIMATED_TIME, request.ACTUAL_TIME], function (err, results) {
-            if (err) throw err;
-            else {
-                res.send({"success": "success"});
-                console.log(results);
-            }
-        });
-    }
+}
+/*if(request.TOPIC_END_DT==null){
+    request.TOPIC_END_DT='NULL';
+}*/
+if(request.SUBJECT_NM) {
+    var MYWORK_TYPE="TOPIC";
+    var insert = "insert into mywork(MYWORK_TYPE,EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
+        "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?,?)";
+    con.query(insert, [MYWORK_TYPE,request.EMPLOYEE_NM, request.SUBJECT_NM, request.TOPIC_ID, request.TOPIC_NM,
+        request.TOPIC_START_DT.formatted, request.TOPIC_END_DT.formatted,
+        request.ESTIMATED_TIME, request.ACTUAL_TIME], function (err, results) {
+        if (err) throw err;
+        else {
+            res.send({"success": "success"});
+            console.log(results);
+        }
+    });
+}
+else if(request.PROJECT_NM){
+    var MYWORK_TYPE="PROJECT";
+    var insert = "insert into mywork(MYWORK_TYPE,EMPLOYEE_NM,SUBJECT_NM,TOPIC_ID,TOPIC_NM," +
+        "TOPIC_START_DT,TOPIC_END_DT,ESTIMATED_TIME,ACTUAL_TIME) values(?,?,?,?,?,?,?,?,?)";
+    con.query(insert, [MYWORK_TYPE,request.EMPLOYEE_NM, request.PROJECT_NM,
+        request.TASK_ID, request.TASK_NM,
+        request.TASK_START_DT, request.TASK_END_DT,
+        request.ESTIMATED_TIME, request.ACTUAL_TIME], function (err, results) {
+        if (err) throw err;
+        else {
+            res.send({"success": "success"});
+            console.log(results);
+        }
+    });
+}
 });
 
 router.post('/updatemywork',(req,res,next)=>
@@ -154,12 +156,12 @@ con.query(update,[request.EMPLOYEE_NM,request.SUBJECT_NM,
 });
 router.post('/checksecurityanswer',(req,res,next)=>
 {
-    var request = req.body;
+var request = req.body;
 console.log(request);
 var email=req.body.email;
 var securityQuestion=req.body.securityquestion;
 var securityAnswer=req.body.securityanswer;
-var select_stmt="select email from registeredusers where email=?";
+var select_stmt="select registeremail from registeredusers where registeremail=?";
 con.query(select_stmt,[email],function (err,results)
 {
     if(err)
@@ -177,6 +179,53 @@ con.query(select_stmt,[email],function (err,results)
     }
 });
 });
+router.post('/checkemail',(req,res,next)=>
+{
+var request = req.body;
+console.log(request);
+var email=req.body.email;
+//var securityQuestion=req.body.securityquestion;
+//var securityAnswer=req.body.securityanswer;
+var select_stmt="select * from registeredusers where registeremail=?";
+con.query(select_stmt,[email],function (err,results)
+{
+    if(err)
+        throw err;
+    else
+    {
+        if(results) {
+            console.log(results);
+            if(results!=""){
+            	var response={emailstatus:"exists",emaildetails:results[0]};
+                res.send(response);
+            }
+            else{
+                var response={emailstatus:"notexists"};
+                res.send(response);
+            }
+        }
+    }
+});
+});
+
+router.post('/resetpassword',(req,res,next)=>
+{
+var request = req.body;
+console.log(request);
+var email=req.body.email;
+var password=req.body.password;
+//var securityQuestion=req.body.securityquestion;
+//var securityAnswer=req.body.securityanswer;
+var delete_stmt="update registeredusers set registerpassword=? where registeremail=?";
+con.query(delete_stmt,[password,email],function (err,results)
+{
+    if(err) throw err;
+    console.log(results);
+    res.send({passwordresetstatus:"success"});
+});
+});
+
+
 router.get('/topictabledetails',(req,res,next)=>
 {
 var topictabledetails;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MyworkService} from './mywork.service';
+import {MyworkService} from "../../services/mywork.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {IMyDpOptions} from 'mydatepicker';
@@ -27,12 +27,12 @@ export class MyworkComponent implements OnInit {
   viewForm: FormGroup;
   private form;
   private selectedRow;
-  private myworktype = ["PROJECT", "TOPIC"];
   private myworkclicked;
   private toolsclicked;
-  private employeedetails;
-  private subjectdetails;
-  private topicdetails;
+  public employeedetails;
+  public subjectdetails;
+  public topicdetails;
+  public showTopicIDs=[];
   //private newmywork: Mywork[];
   private sess = sessionStorage.getItem('sessionid');
   private selectColumns = {
@@ -64,6 +64,7 @@ export class MyworkComponent implements OnInit {
     console.log(value);
   }
   mywork() {
+
     this.myworkclicked = true;
     this.toolsclicked = false;
     //this.getbackgroundMywork();
@@ -95,6 +96,19 @@ export class MyworkComponent implements OnInit {
       }
     }
   }
+  SubjectNameSelected(selectedsubject){
+    this.showTopicIDs=[];
+    for (var i = 0; i < this.topicdetails.length; i++) {
+    for (var j = 0; j < this.subjectdetails.length; j++) {
+      if (this.subjectdetails[j].SUBJECT_NM == selectedsubject) {
+      if (this.subjectdetails[j].SUBJECT_CODE == this.topicdetails[i].TOPIC_ID.substring(0,2)) {
+        this.showTopicIDs.push(this.topicdetails[i].TOPIC_ID)
+      }
+    }
+  }
+}
+console.log(this.showTopicIDs);
+}
 AddNewMyworkData(value) {
     this.form = value;
     console.log(this.form);
@@ -159,6 +173,7 @@ AddNewMyworkData(value) {
       this.createForm.controls['EMPLOYEE_NM'].setValue(data.EMPLOYEE_NM);
       this.createForm.controls['SUBJECT_NM'].setValue(data.SUBJECT_NM);
       this.createForm.controls['TOPIC_ID'].setValue(data.TOPIC_ID);
+      //this.createForm.controls['TOPIC_ID'].disable();
       this.createForm.controls['TOPIC_NM'].setValue(data.TOPIC_NM);
       this.createForm.controls['TOPIC_START_DT'].setValue(data.TOPIC_START_DT);
       this.createForm.controls['TOPIC_END_DT'].setValue(data.TOPIC_END_DT);
@@ -280,6 +295,7 @@ AddNewMyworkData(value) {
     this._myworkService.gettopicdetails()
       .subscribe(data =>{
         console.log(data);
+        this._myworkService.settopicdetails(data);
         this.topicdetails=data;
         for(var i=0;i<data.length;i++){
           this.selectColumns.topicids[i]=data[i].TOPIC_ID;
@@ -289,6 +305,7 @@ AddNewMyworkData(value) {
     this._myworkService.getemployeedetails()
       .subscribe(data =>{
         console.log(data);
+        this._myworkService.setemployeedetails(data);
         this.employeedetails=data;
         for(var i=0;i<this.employeedetails.length;i++){
           this.selectColumns.employeenames[i]=this.employeedetails[i].EMPLOYEE_NM;
@@ -297,6 +314,7 @@ AddNewMyworkData(value) {
     this._myworkService.getsubjectdetails()
       .subscribe(data =>{
         console.log(data);
+        this._myworkService.setsubjectdetails(data);
         this.subjectdetails=data;
         for(var i=0;i<this.subjectdetails.length;i++){
           this.selectColumns.subjectnames[i]=this.subjectdetails[i].SUBJECT_NM;
@@ -333,11 +351,7 @@ AddNewMyworkData(value) {
       ACTUAL_TIME:['']
     });
     this.mywork();
-    if(sessionStorage){
-      console.log(sessionStorage);
-
     }
-  }
   /*  selectedForFilter(data){
       console.log(data);
       if(data=="MYWORK_TYPE")

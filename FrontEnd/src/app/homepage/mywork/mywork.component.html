@@ -157,7 +157,7 @@
         <div>Employee Name:</div>
         <input type="text" formControlName="EMPLOYEE_NM" id="EMPLOYEE_NM" readonly><br/><br/>
         <div>Subject Name:</div>
-        <select formControlName="SUBJECT_NM">
+        <select formControlName="SUBJECT_NM" (change)="SubjectNameSelected($event.target.value)">
         <option *ngFor="let subject of subjectdetails"
                 value="{{subject.SUBJECT_NM}}">
           {{subject.SUBJECT_NM}}
@@ -165,9 +165,9 @@
       </select><br/><br/>
         <div>Topic ID:</div>
         <select formControlName="TOPIC_ID" (change)="TopicIDSelected($event.target.value)">
-        <option *ngFor="let topic of topicdetails"
-                [value]="topic.TOPIC_ID">
-          {{topic.TOPIC_ID}}
+        <option *ngFor="let topic of showTopicIDs"
+                [value]="topic">
+          {{topic}}
         </option>
       </select><br/><br/>
         <div>Topic Name:</div>
